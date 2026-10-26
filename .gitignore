@@ -1,0 +1,11 @@
+# Local cache and dependencies
+node_modules/
+projects/
+sidecars/
+*.bak
+.migrated
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+*.pyc

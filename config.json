@@ -1,0 +1,134 @@
+{
+  "plugins": {
+    "android-cli-plugin": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/android-cli-plugin",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.0.16500706"
+      }
+    },
+    "chrome-devtools-plugin": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/chrome-devtools-plugin",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.10.1"
+      }
+    },
+    "data-agent-kit-plugin": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/data-agent-kit-plugin",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.1.0"
+      }
+    },
+    "firebase": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/firebase",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.0.3"
+      }
+    },
+    "flutter": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/flutter",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.0.6"
+      }
+    },
+    "gcalendar": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/gcalendar",
+        "marketplace": "antigravity-plugins-official",
+        "version": "0.0.6"
+      }
+    },
+    "gdocs": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/gdocs",
+        "marketplace": "antigravity-plugins-official",
+        "version": "0.0.7"
+      }
+    },
+    "gdrive": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/gdrive",
+        "marketplace": "antigravity-plugins-official",
+        "version": "0.0.7"
+      }
+    },
+    "gemini-api": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/gemini-api",
+        "marketplace": "antigravity-plugins-official",
+        "version": "2.3.0"
+      }
+    },
+    "google-antigravity-sdk": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/google-antigravity-sdk",
+        "marketplace": "antigravity-plugins-official",
+        "version": "0.0.9"
+      }
+    },
+    "google-cloud-developer": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/google-cloud-developer",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.1.13"
+      }
+    },
+    "google-developer-knowledge": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/google-developer-knowledge",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.0.1"
+      }
+    },
+    "google_maps_platform": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/google_maps_platform",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.0.0"
+      }
+    },
+    "gsheets": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/gsheets",
+        "marketplace": "antigravity-plugins-official",
+        "version": "0.0.6"
+      }
+    },
+    "gslides": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/gslides",
+        "marketplace": "antigravity-plugins-official",
+        "version": "0.0.6"
+      }
+    },
+    "modern-web-guidance-plugin": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/modern-web-guidance-plugin",
+        "marketplace": "antigravity-plugins-official",
+        "version": "0.0.195"
+      }
+    },
+    "science": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/science",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.3.1"
+      }
+    }
+  },
+  "sidecars": {
+    "science/biomolecular_structure_viewer": {
+      "projectId": "95dd4665-4545-4a19-8627-2cf81e59164e",
+      "schemaVersion": 1
+    }
+  },
+  "userSettings": {
+    "permissionGrantsV2Migrated": true,
+    "remoteControlHostname": "desktop-4mru4a6-glowing-photon",
+    "sandboxEnabledAtV2Migration": false
+  }
+}
