@@ -4,8 +4,8 @@ This is the default loop prompt shipped by planning-with-files v2.38.0 and later
 
 ## Setup reference
 
-- User-wide default: `cp templates/loop.md ~/.claude/loop.md`
-- Project-specific default: `cp templates/loop.md .claude/loop.md`
+- User-wide default: `cp templates/loop.md ~/.gemini/loop.md`
+- Project-specific default: `cp templates/loop.md .gemini/loop.md`
 
 A bare `/loop <interval>` reads this file and runs the prompt below. Override it for one call with `/loop 5m "your prompt"`.
 

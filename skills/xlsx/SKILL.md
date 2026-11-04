@@ -13,9 +13,9 @@ license: Proprietary. LICENSE.txt has complete terms
 | **Quick look** at a sheet | `markitdown file.xlsx` — `## SheetName` per sheet; reads `.xlsm` too. No cell coordinates, so don't plan edits from it |
 | **Read** a model (formulas *and* values) | two `load_workbook` passes — see gotchas |
 
-> `openpyxl`, `pandas`, and `markitdown` are preinstalled — do not run `pip install` first; write the script and import directly. Only if an import fails (or the `markitdown` command is missing): `pip install` the missing package.
+> Ensure `openpyxl` and `pandas` are available in your Python environment (`pip install openpyxl pandas`). For markdown text extraction, `markitdown` (`pip install markitdown`) is optional.
 
-> Script paths below are relative to this skill's directory.
+> Script paths below are relative to this skill's directory. Note: `scripts/recalc.py` uses LibreOffice if available to compute cached values; if LibreOffice is not installed on the system, formulas remain intact and evaluate automatically when opened in Microsoft Excel or Google Sheets.
 
 ## Requirements for every output
 

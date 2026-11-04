@@ -12,3 +12,4 @@ __pycache__/
 
 # Archived backup skills
 skills/.archive/
+**/.archive*/

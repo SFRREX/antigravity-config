@@ -1,6 +1,6 @@
-# graphify reference: commit hook and native CLAUDE.md integration
+# graphify reference: commit hook and agent instructions integration
 
-Load this when the user asked to install the post-commit hook or wire graphify into a project's CLAUDE.md.
+Load this when the user asked to install the post-commit hook or wire graphify into a project's agent instructions (GEMINI.md / AGENTS.md).
 
 ## For git commit hook
 
@@ -18,16 +18,13 @@ If a post-commit hook already exists, graphify appends to it rather than replaci
 
 ---
 
-## For native CLAUDE.md integration
+## For agent instructions (GEMINI.md / AGENTS.md) integration
 
-Run once per project to make graphify always-on in Claude Code sessions:
+Run once per project to make graphify always-on in agent coding sessions:
 
-```bash
-graphify claude install
-```
+This appends a `## graphify` section to the local `GEMINI.md` or `AGENTS.md` instructions that instructs the agent to check the graph before answering codebase questions and rebuild it after code changes. No manual `/graphify` needed in future sessions.
 
-This writes a `## graphify` section to the local `CLAUDE.md` that instructs Claude to check the graph before answering codebase questions and rebuild it after code changes. No manual `/graphify` needed in future sessions.
-
-```bash
-graphify claude uninstall  # remove the section
+```markdown
+## Codebase Knowledge Graph (graphify)
+Before planning architectural changes or answering broad codebase questions, check `graphify-out/` or run `graphify` to understand dependencies and module relationships.
 ```

@@ -236,8 +236,8 @@ def add_comment(
     unpacked_dir: Path | str,
     text: str,
     comment_id: int | None = None,
-    author: str = "Claude",
-    initials: str = "C",
+    author: str = "Antigravity",
+    initials: str = "A",
     parent_id: int | None = None,
     raw: bool = False,
 ) -> tuple[int, str, str]:
@@ -318,8 +318,8 @@ def main() -> None:
                    help="Treat text as pre-escaped XML (skip automatic escaping)")
     p.add_argument("--id", type=int, dest="comment_id",
                    help="Comment ID (default: auto-assign as max existing + 1)")
-    p.add_argument("--author", default="Claude", help="Author name")
-    p.add_argument("--initials", default="C", help="Author initials")
+    p.add_argument("--author", default="Antigravity", help="Author name")
+    p.add_argument("--initials", default="A", help="Author initials")
     p.add_argument("--parent", type=int, help="Parent comment ID (makes this a reply)")
     p.add_argument("-o", "--output",
                    help="Output .docx path (only used when input is a .docx; default: overwrite input)")

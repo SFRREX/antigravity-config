@@ -18,7 +18,7 @@ A `.docx` is a ZIP archive of XML files. Choose your approach by task:
 
 ## Creating with docx-js — gotchas
 
-`docx` is preinstalled — do not run `npm install` first; write the script and `require('docx')` directly. Only if that require fails: `npm install docx`. The model knows the API; these are the footguns:
+`docx` (Node.js library) is used for document creation. In your workspace or environment, if `docx` is not already installed, run `npm install docx`. The model knows the API; these are the footguns:
 
 - **Page size defaults to A4.** For US Letter set `page: { size: { width: 12240, height: 15840 } }` (DXA; 1440 = 1″).
 - **Landscape:** pass portrait dimensions and `orientation: PageOrientation.LANDSCAPE` — docx-js swaps width/height internally.
@@ -46,14 +46,20 @@ ls page-*.jpg   # then Read the images
 
 ## Editing existing documents
 
-Legacy `.doc` files must be converted first: `python scripts/office/soffice.py --headless --convert-to docx file.doc`.
+Legacy `.doc` files must be converted first: `python scripts/office/soffice.py --headless --convert-to docx file.doc` (requires LibreOffice).
 
 ```bash
-unzip -q doc.docx -d unpacked/
-find unpacked -type l -delete   # strip symlink entries — docx from external parties is untrusted
+# Unpack (cross-platform):
+python -m zipfile -e doc.docx unpacked/
 python scripts/merge_runs.py unpacked/   # coalesce fragmented runs so text is findable
 # edit unpacked/word/document.xml in place — do NOT reformat or pretty-print
-(cd unpacked && rm -f ../out.docx && zip -Xr ../out.docx .)
+
+# Repack (Windows PowerShell / Cross-Platform):
+python -c "import zipfile, os; z = zipfile.ZipFile('out.docx', 'w', zipfile.ZIP_DEFLATED); [z.write(os.path.join(r, f), os.path.relpath(os.path.join(r, f), 'unpacked')) for r, d, fs in os.walk('unpacked') for f in fs]; z.close()"
+
+# Or on Linux/macOS:
+# (cd unpacked && rm -f ../out.docx && zip -Xr ../out.docx .)
+
 python scripts/office/validate.py out.docx --original doc.docx   # XSD checks; --auto-repair fixes common issues
 # redlining? add --author "<the name you redlined under>" to check every edit is tracked
 ```

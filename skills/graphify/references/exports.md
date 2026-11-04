@@ -66,9 +66,9 @@ graphify export graphml
 $(cat graphify-out/.graphify_python) -m graphify.serve graphify-out/graph.json
 ```
 
-This starts a stdio MCP server that exposes tools: `query_graph`, `get_node`, `get_neighbors`, `get_community`, `god_nodes`, `graph_stats`, `shortest_path`. Add to Claude Desktop or any MCP-compatible agent orchestrator so other agents can query the graph live.
+This starts a stdio MCP server that exposes tools: `query_graph`, `get_node`, `get_neighbors`, `get_community`, `god_nodes`, `graph_stats`, `shortest_path`. Add to your MCP client config or agent orchestrator so other agents can query the graph live.
 
-To configure in Claude Desktop, add to `claude_desktop_config.json`. Claude Desktop can't run `$(...)`, and under `uv tool install` the system `python3` can't import graphify — so set `command` to the **absolute interpreter path** printed by `cat graphify-out/.graphify_python`:
+To configure in an MCP client, add to your MCP client settings. Since GUI clients can't run `$(...)`, set `command` to the **absolute interpreter path** printed by `cat graphify-out/.graphify_python`:
 ```json
 {
   "mcpServers": {

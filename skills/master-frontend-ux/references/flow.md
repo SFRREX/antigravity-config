@@ -94,7 +94,7 @@ Two edge cases: the archive has written nothing yet (say so and wait; do not sta
 
 ## Edit-time linting
 
-On Claude Code, `node <skill-dir>/scripts/install-hook.mjs` wires sloplint as a PostToolUse hook that reports Floor findings the moment an artifact is written and stays quiet otherwise; Step 7 still runs.
+`node <skill-dir>/scripts/sloplint.mjs` reports Floor findings the moment an artifact is written and stays quiet otherwise; Step 7 still runs.
 
 ## Comp before build (signal 9)
 
@@ -102,17 +102,17 @@ Fires only when `TOGETHER_API_KEY` is set. After the Picks block, load `comp.md`
 
 ## Harnesses
 
-Hallmark is tuned for Claude Code, Codex CLI and OpenCode. This section tunes execution, never standards: the Floor, the gates, the stamp, `tokens.css` and the log are identical everywhere; on any conflict SKILL.md wins.
+Master Frontend UX is tuned for Google Antigravity, Gemini CLI, Codex CLI and OpenCode. This section tunes execution, never standards: the Floor, the gates, the stamp, `tokens.css` and the log are identical everywhere; on any conflict SKILL.md wins.
 
-| Lever | Claude Code | Codex CLI | OpenCode |
+| Lever | Antigravity | Codex CLI | OpenCode |
 | --- | --- | --- | --- |
-| Skill path | `~/.claude/skills/hallmark`, `/hallmark` | `~/.agents/skills/hallmark`, `$hallmark` (implicit invocation on) | `~/.config/opencode/skills` plus the Claude and Codex paths; `/hallmark` |
-| Edit-time hook | PostToolUse via `install-hook.mjs` | none; Step 7 sloplint is the only mechanical sweep | none; same |
-| Subagents | yes | none; the fresh-context review runs in-thread and says so | yes (`@general`); parallel work allowed |
-| Questions | AskUserQuestion | plain chat text, once, then wait | plain chat text, once, then wait |
-| Browser preview | preview pane | none; relay paths | none; relay paths |
+| Skill path | Global skills directory | `~/.agents/skills/hallmark`, `$hallmark` | `~/.config/opencode/skills` |
+| Edit-time hook | Native tool execution | none; Step 7 sloplint is the only mechanical sweep | none; same |
+| Subagents | yes (invoke_subagent) | none; the fresh-context review runs in-thread and says so | yes (`@general`); parallel work allowed |
+| Questions | ask_question / chat | plain chat text, once, then wait | plain chat text, once, then wait |
+| Browser preview | preview pane / artifacts | none; relay paths | none; relay paths |
 | Network | yes | off by default in the `workspace-write` sandbox; `imagegen.mjs` needs an explicit ask and an approval | `webfetch` permission-gated |
-| Node scripts | run freely | `sloplint.mjs` runs in-sandbox (local reads only) | bash gated allow / ask / deny; if *ask*, warn once and suggest allowing `node *` for the session; never edit the permission config |
+| Node scripts | run freely | `sloplint.mjs` runs in-sandbox (local reads only) | bash gated allow / ask / deny |
 
 **The render tier** (`sloplint --render`, `capture.mjs`, `picture.mjs`) needs Node 18 or later, `puppeteer-core` (local, global or `HALLMARK_PUPPETEER`) and Chrome or Chromium (`CHROME_PATH` when it is not in a usual place). Without them sloplint runs the static gates and prints that the render tier did not run: say so in the handoff, never claim a render pass, and offer `npm i -g puppeteer-core`.
 

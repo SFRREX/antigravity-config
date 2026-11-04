@@ -73,9 +73,9 @@ def normalize_for_compare(path_value: str) -> str:
 
 
 def normalize_path(project_path: str) -> str:
-    """Normalize project path to match Claude Code's internal representation.
+    """Normalize project path to match agent's internal representation.
 
-    Claude Code stores session directories using the Windows-native path
+    Session storage stores directories using the Windows-native path
     (e.g., C:\\Users\\...) sanitized with separators replaced by dashes.
     Git Bash passes /c/Users/... which produces a DIFFERENT sanitized
     string. This function converts Git Bash paths to Windows paths first.
@@ -98,8 +98,8 @@ def normalize_path(project_path: str) -> str:
     return p
 
 
-def _claude_sanitize(path_str: str, astral_width: int = 2) -> str:
-    """Claude Code's project-dir name for a project path.
+def _agent_sanitize(path_str: str, astral_width: int = 2) -> str:
+    """Project-dir name for a project path.
 
     Every character outside [A-Za-z0-9_-] becomes '-', and the leading dash of
     POSIX absolute paths is kept (real stores look like -home-user-proj). The
@@ -109,7 +109,7 @@ def _claude_sanitize(path_str: str, astral_width: int = 2) -> str:
 
     Underscores are NOT universally kept: current versions fold '_' to '-'
     while older stores kept it, and both spellings are live on disk, so
-    get_claude_project_dir() probes both.
+    get_agent_project_dir() probes both.
     """
     return re.sub(
         r'[^A-Za-z0-9_-]',
@@ -144,11 +144,11 @@ def _newest_session_cwd_matches(project_dir: Path, normalized: str) -> bool:
     return False
 
 
-def get_claude_project_dir(project_path: str) -> Path:
-    """Resolve Claude Code's project-specific session storage path.
+def get_agent_project_dir(project_path: str) -> Path:
+    """Resolve project-specific session storage path.
 
-    Claude Code keeps underscores and the leading dash of POSIX absolute
-    paths when it names ~/.claude/projects/ entries. Earlier versions of
+    Session storage keeps underscores and the leading dash of POSIX absolute
+    paths when it names ~/.agent/projects/ entries. Earlier versions of
     this script guessed a single name with '_' replaced by '-' and the
     leading dash stripped, which silently missed the real store on every
     macOS/Linux install and on any project path containing an underscore.
@@ -157,12 +157,12 @@ def get_claude_project_dir(project_path: str) -> Path:
     session file.
     """
     normalized = normalize_path(project_path)
-    projects_root = Path.home() / '.claude' / 'projects'
+    projects_root = Path.home() / '.agent' / 'projects'
 
-    primary = _claude_sanitize(normalized)
+    primary = _agent_sanitize(normalized)
     candidates = [primary]
     for width in (2, 1):
-        exact = _claude_sanitize(normalized, width)
+        exact = _agent_sanitize(normalized, width)
         for spelling in (exact, exact.replace('_', '-')):
             if spelling not in candidates:
                 candidates.append(spelling)
@@ -191,7 +191,7 @@ def get_sessions_sorted(project_dir: Path) -> List[Path]:
 
 
 def claude_session_cwd(session_file: Path) -> Optional[str]:
-    """The cwd a Claude Code transcript records, or None if it records none."""
+    """The cwd an agent transcript records, or None if it records none."""
     try:
         with open(session_file, 'r', encoding='utf-8', errors='replace') as f:
             for _ in range(50):
@@ -261,7 +261,7 @@ def safe_project_label(value: object) -> str:
 def filter_sessions_by_cwd(sessions: List[Path], project_path: str) -> Tuple[List[Path], Optional[str]]:
     """Drop transcripts that positively belong to a different project.
 
-    Claude Code folds project paths into a single directory name, so two
+    Transcript storage folds project paths into a single directory name, so two
     projects whose paths differ only in folded characters (client.acme and
     client-acme both fold to client-acme) share one store. Without this
     filter a catchup in one of them prints the other's conversation into the
@@ -298,7 +298,7 @@ def filter_sessions_by_cwd(sessions: List[Path], project_path: str) -> Tuple[Lis
             "[planning-with-files] Session catchup skipped: "
             f"{safe_project_label(sorted(set(foreign))[0])} and "
             f"{safe_project_label(project_cmp)} share one "
-            "~/.claude/projects directory, so no transcript here belongs to "
+            "~/.agent/projects directory, so no transcript here belongs to "
             "the requested project."
         )
     if unknown:
@@ -396,15 +396,15 @@ def get_session_candidates(
         # OpenCode dispatch is handled separately via SQLite (v2.38.0+).
         return 'opencode', []
 
-    claude_project_dir = get_claude_project_dir(project_path)
+    claude_project_dir = get_agent_project_dir(project_path)
     if claude_project_dir.exists():
         sessions, notice = filter_sessions_by_cwd(
             get_sessions_sorted(claude_project_dir), project_path
         )
         if notice and emit_notices:
             print(notice)
-        return 'claude', sessions
-    return 'claude', []
+        return 'agent', sessions
+    return 'agent', []
 
 
 def get_opencode_db_path() -> Optional[Path]:
@@ -806,7 +806,7 @@ def summarize_codex_tool(payload: Dict[str, Any]) -> str:
 def collect_claude_tool_results(messages: List[Dict[str, Any]]) -> Dict[str, str]:
     """Map tool_use id -> outcome annotation from user-side tool_result entries.
 
-    Claude Code records tool results as user messages whose content list holds
+    Transcripts record tool results as user messages whose content list holds
     tool_result items. Sessions without such entries yield an empty map, which
     keeps legacy transcripts byte-identical in the report.
     """
@@ -949,7 +949,7 @@ def main():
     # Find a substantial previous session
     target_session = None
     for session in sessions:
-        if runtime_name == 'claude' and not is_substantial_session(session):
+        if runtime_name in ('agent', 'external') and not is_substantial_session(session):
             continue
         target_session = session
         break
@@ -983,7 +983,7 @@ def main():
     print(f"Unsynced messages: {len(messages_after)}")
 
     print("\n--- UNSYNCED CONTEXT ---")
-    assistant_label = 'CODEX' if runtime_name == 'codex' else 'CLAUDE'
+    assistant_label = 'CODEX' if runtime_name == 'codex' else 'ASSISTANT'
     for msg in messages_after[-15:]:  # Last 15 messages
         if msg['role'] == 'user':
             print(frame_untrusted_context('transcript', f"USER: {msg['content'][:300]}"))
