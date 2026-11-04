@@ -164,3 +164,4 @@ When a function handles multiple phases (parsing, validating, transforming, stor
   * Code is already clean and readable.
   * You do not yet understand the full domain logic of the code.
   * The code is in an ultra-hot performance loop where micro-optimizations dictate the structure.
+

@@ -1,11 +1,11 @@
 ---
 name: agent-skills-builder
-description: "End-to-end AI agent skill lifecycle engine: converts documentation, repositories, PDFs, and codebases into structured skills via Skill Seekers, and diagnoses, fixes, and repairs broken skills and manifests. Use when creating, packaging, testing, or repairing agent skills."
+description: "End-to-end AI agent skill lifecycle engine: converts documentation, repositories, PDFs, and codebases into structured skills via Skill Seekers, and diagnoses, fixes, benchmarks, and repairs broken skills and manifests. Use when creating, packaging, testing, or repairing agent skills."
 ---
 
 # Agent Skills Builder & Repair Engine
 
-A unified engine for the full AI agent skill lifecycle: scraping external documentation into ready-to-use skills, packaging them for LLM use, and diagnosing/repairing corrupted skill files or manifest entries.
+A unified engine for the full AI agent skill lifecycle: scraping external documentation into ready-to-use skills, packaging them for LLM use, diagnosing/repairing corrupted skill files or manifest entries, and optimizing skill descriptions and benchmarks.
 
 ---
 
@@ -34,11 +34,35 @@ Leverage the Skill Seekers MCP toolset (40 tools) to convert knowledge sources i
 
 ---
 
-## 2. SKILL REPAIR & MANIFEST DIAGNOSTICS
+## 2. SKILL VALIDATION & TRIGGER OPTIMIZATION
+
+Use the built-in diagnostic and optimization scripts to ensure high skill quality:
+
+### 2.A Fast Validation
+Run `quick_validate.py` on any skill folder to verify frontmatter, YAML syntax, and file structure:
+```bash
+python "<skill-dir>/scripts/quick_validate.py" <path-to-skill-folder>
+```
+
+### 2.B Trigger Description Optimization
+Optimize the `description` field for maximum triggering accuracy across varied user prompts:
+```bash
+python "<skill-dir>/scripts/improve_description.py" <path-to-skill-folder>
+```
+
+### 2.C Packaging
+Package a skill into a distributable archive:
+```bash
+python "<skill-dir>/scripts/package_skill.py" <path-to-skill-folder>
+```
+
+---
+
+## 3. SKILL REPAIR & MANIFEST DIAGNOSTICS
 
 Use when a skill fails installation, has malformed frontmatter, or exhibits runtime errors:
 
-### 2.A Diagnostic Procedure
+### 3.A Diagnostic Procedure
 1. **Analyze Error**: Review the specific failure output (e.g., YAML syntax error, missing frontmatter, broken scripts, or missing references).
 2. **Inspect Full Skill Directory**:
    * Inspect `SKILL.md`: Verify YAML frontmatter starts on line 1 with `---`, has valid `name` and `description` keys, and contains no UTF-8 BOM (`\xef\xbb\xbf`).
@@ -57,4 +81,4 @@ Use when a skill fails installation, has malformed frontmatter, or exhibits runt
        }
      }
      ```
-4. **Verify**: Ensure the skill directory is cleanly discovered and tested.
+4. **Verify**: Run `quick_validate.py` to ensure the skill directory is cleanly discovered and validated.
