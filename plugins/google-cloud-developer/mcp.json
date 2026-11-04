@@ -3,10 +3,7 @@
   "mcpServers": {
     "developer-knowledge": {
       "type": "streamable-http",
-      "url": "https://developerknowledge.googleapis.com/mcp",
-      "headers": {
-          "X-Goog-Api-Key": "${DEVELOPERKNOWLEDGE_API_KEY}"
-      }
+      "url": "https://developerknowledge.googleapis.com/mcp"
     }
   }
 }

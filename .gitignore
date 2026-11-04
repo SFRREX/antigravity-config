@@ -9,3 +9,6 @@ Thumbs.db
 *.log
 __pycache__/
 *.pyc
+
+# Archived backup skills
+skills/.archive/

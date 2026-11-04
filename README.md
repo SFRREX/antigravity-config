@@ -2,18 +2,17 @@
 
 Personal curated configuration for **Google Antigravity** and **Gemini CLI**.
 
-## 🛠️ Active Standalone Skills (17)
+## 🛠️ Active Standalone Skills (16)
+- **`master-frontend-ux`**: Unified master frontend design & UX engineering engine (3 dials, 21 hallmark macrostructures, offline BM25 search for 192 palettes & 74 fonts, sloplint linter, anti-slop rules, pre-flight gate).
+- **`karpathy-guidelines`**: Behavioral guidelines to reduce common LLM coding mistakes (Think before coding, Simplicity first, Surgical changes, Goal-driven execution).
 - **`planning-with-files`**: Persistent disk-based task planning (`task_plan.md`, `progress.md`, `findings.md`).
 - **`graphify`**: Codebase AST knowledge graph generation with Tree-sitter parsers.
-- **`hallmark`**: Anti-AI-slop design floor, 21 macrostructures, 40+ themes, and sloplint linter.
-- **`ui-ux-pro-max`**: Comprehensive UI/UX design intelligence with offline BM25 search.
 - **`webapp-testing`**: Headless Chromium end-to-end testing via Playwright.
 - **`code-simplification`**: Code refactoring for maximum clarity and maintainability.
 - **`security-and-hardening`**: Application security, OWASP top 10, and vulnerability mitigation.
 - **`performance-optimization`**: Frontend, query, and web vitals optimization.
 - **`conventional-commits`**: Standardized Conventional Commits generator.
 - **`pr-description`**: Reviewer-friendly pull request descriptions from git diffs.
-- **`frontend-design`**: Intentional, distinctive UI and design system principles.
 - **`web-artifacts-builder`**: Interactive React, Tailwind, and shadcn component builder.
 - **`mcp-builder`**: FastMCP / TypeScript MCP server architecture.
 - **`managing-python-dependencies`**: Virtual environments and dependency isolation.

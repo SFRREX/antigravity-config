@@ -4,7 +4,7 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/android-cli-plugin",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.0.16500706"
+        "version": "1.0.16625370"
       }
     },
     "chrome-devtools-plugin": {
@@ -18,7 +18,7 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/data-agent-kit-plugin",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.1.0"
+        "version": "1.2.0"
       }
     },
     "firebase": {
@@ -32,35 +32,35 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/flutter",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.0.6"
+        "version": "1.0.7"
       }
     },
     "gcalendar": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gcalendar",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.6"
+        "version": "0.0.7"
       }
     },
     "gdocs": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gdocs",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.7"
+        "version": "0.0.8"
       }
     },
     "gdrive": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gdrive",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.7"
+        "version": "0.0.8"
       }
     },
     "gemini-api": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gemini-api",
         "marketplace": "antigravity-plugins-official",
-        "version": "2.3.0"
+        "version": "2.3.1"
       }
     },
     "google-antigravity-sdk": {
@@ -74,14 +74,14 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/google-cloud-developer",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.1.13"
+        "version": "1.1.16"
       }
     },
     "google-developer-knowledge": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/google-developer-knowledge",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.0.1"
+        "version": "1.0.2"
       }
     },
     "google_maps_platform": {
@@ -95,38 +95,78 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gsheets",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.6"
+        "version": "0.0.7"
       }
     },
     "gslides": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gslides",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.6"
+        "version": "0.0.7"
       }
     },
     "modern-web-guidance-plugin": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/modern-web-guidance-plugin",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.195"
+        "version": "0.0.197"
       }
     },
     "science": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/science",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.3.1"
+        "version": "1.4.0"
+      }
+    },
+    "vercel-plugin": {
+      "installedFrom": {
+        "id": "antigravity-plugins-partners/plugin/vercel-plugin",
+        "marketplace": "antigravity-plugins-partners",
+        "version": "0.54.1-agy.4b94cb5a"
       }
     }
   },
   "sidecars": {
+    "android-cli-plugin/compose-preview": {
+      "projectId": "71032069-e072-4674-87e0-dba67acee209",
+      "schemaVersion": 1
+    },
+    "android-cli-plugin/device-hub": {
+      "projectId": "3c0aa70d-7280-4bb1-863b-7b338ac260bd",
+      "schemaVersion": 1
+    },
     "science/biomolecular_structure_viewer": {
       "projectId": "95dd4665-4545-4a19-8627-2cf81e59164e",
       "schemaVersion": 1
     }
   },
   "userSettings": {
+    "artifactReviewMode": "ARTIFACT_REVIEW_MODE_TURBO",
+    "autoExecutionPolicy": "CASCADE_COMMANDS_AUTO_EXECUTION_EAGER",
+    "browserJsExecutionPolicy": "BROWSER_JS_EXECUTION_POLICY_TURBO",
+    "globalPermissionGrants": {
+      "allow": [
+        "command(Get-ChildItem -Path \"C:\\Users\\Razedus Safar\\.gemini\\antigravity\\scratch\")",
+        "command(New-Item -ItemType Directory -Force -Path \"C:\\Users\\Razedus Safar\\.gemini\\antigravity\\scratch\\react-practice-tasks\")",
+        "command(cd \"C:\\Users\\Razedus Safar\\.gemini\\antigravity\\scratch\\react-practice-tasks\"; npm install)",
+        "execute_url(localhost)",
+        "read_file(C:\\Users\\Razedus Safar\\.gemini\\config\\mcp_config.json)",
+        "write_file(C:\\Users\\Razedus Safar\\.gemini\\config\\mcp_config.json)",
+        "mcp(supabase/get_project_url)",
+        "mcp(supabase/get_publishable_keys)",
+        "mcp(supabase/list_tables)",
+        "mcp(supabase/apply_migration)",
+        "mcp(supabase/execute_sql)",
+        "mcp(supabase/query_logs)",
+        "execute_url(127.0.0.1)",
+        "read_url(clerk.com)",
+        "read_url(raw.githubusercontent.com)",
+        "read_url(api.github.com)",
+        "read_url(help.quillbot.com)",
+        "mcp(gemini-api-docs/gemini_search_docs)"
+      ]
+    },
     "permissionGrantsV2Migrated": true,
     "remoteControlHostname": "desktop-4mru4a6-glowing-photon",
     "sandboxEnabledAtV2Migration": false
