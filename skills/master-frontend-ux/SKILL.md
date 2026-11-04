@@ -289,3 +289,4 @@ Verify every item before declaring work finished:
 - [ ] **Reduced Motion Supported**: All motion wrapped with `useReducedMotion` or CSS media queries?
 - [ ] **Mobile Collapse Explicit**: Multi-column layouts cleanly collapse to single-column under `< 768px`?
 - [ ] **Sloplint Clean**: Automated linter passes without blocking failures?
+

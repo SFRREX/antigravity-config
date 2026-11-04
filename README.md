@@ -2,22 +2,19 @@
 
 Personal curated configuration for **Google Antigravity** and **Gemini CLI**.
 
-## 🛠️ Active Standalone Skills (16)
+## 🛠️ Active Standalone Skills (13)
 - **`master-frontend-ux`**: Unified master frontend design & UX engineering engine (3 dials, 21 hallmark macrostructures, offline BM25 search for 192 palettes & 74 fonts, sloplint linter, anti-slop rules, pre-flight gate).
-- **`karpathy-guidelines`**: Behavioral guidelines to reduce common LLM coding mistakes (Think before coding, Simplicity first, Surgical changes, Goal-driven execution).
+- **`clean-code-craft`**: Unified code quality & simplification discipline (Karpathy's 4 core mental models, behavioral preservation, guard clauses, clarity over cleverness).
+- **`git-workflow`**: End-to-end Git release management (Conventional Commits 1.0.0, atomic commit scopes, reviewer-friendly PR summaries with diff inspection).
+- **`security-and-hardening`**: Application security, OWASP top 10, untrusted input sanitization, and vulnerability mitigation.
+- **`performance-optimization`**: Frontend, query, N+1 pattern fixes, database, and Core Web Vitals optimization.
+- **`webapp-testing`**: Headless Chromium end-to-end testing via Playwright.
 - **`planning-with-files`**: Persistent disk-based task planning (`task_plan.md`, `progress.md`, `findings.md`).
 - **`graphify`**: Codebase AST knowledge graph generation with Tree-sitter parsers.
-- **`webapp-testing`**: Headless Chromium end-to-end testing via Playwright.
-- **`code-simplification`**: Code refactoring for maximum clarity and maintainability.
-- **`security-and-hardening`**: Application security, OWASP top 10, and vulnerability mitigation.
-- **`performance-optimization`**: Frontend, query, and web vitals optimization.
-- **`conventional-commits`**: Standardized Conventional Commits generator.
-- **`pr-description`**: Reviewer-friendly pull request descriptions from git diffs.
-- **`web-artifacts-builder`**: Interactive React, Tailwind, and shadcn component builder.
+- **`agent-skills-builder`**: End-to-end AI agent skill lifecycle engine (Skill Seekers scraping/packaging + skill repair & manifest diagnostics).
 - **`mcp-builder`**: FastMCP / TypeScript MCP server architecture.
 - **`managing-python-dependencies`**: Virtual environments and dependency isolation.
-- **`skill-seekers`**: Scraper and generator for turning docs/repos into agent skills.
-- **`skill-repair`**: Skill diagnostics and manifest repair.
+- **`web-artifacts-builder`**: Interactive React, Tailwind, and shadcn component builder.
 - **`pdf`**: PDF extraction, tables, and architectural specification inspection.
 
 ## 📦 Active Plugins (14)
