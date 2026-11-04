@@ -222,24 +222,30 @@ Before declaring any task, bugfix, or feature complete, climb the verification l
 
 ---
 
-## 12. Master Skill Routing (12 Orthogonal Domains)
+## 12. Mandatory Automatic Skill Invocation & Master Routing
 
-When a task matches a specialized domain, immediately dispatch the task using the corresponding local master skill under `skills/`:
+### A. Non-Negotiable Auto-Use Mandate
+1. **Retrieval-Led Over Pre-Training**: Do NOT default to answering from internal model weights when an installed skill covers the domain. Before writing code, planning a workflow, or executing commands, the agent **MUST ALWAYS** check if a local skill applies.
+2. **Autonomous Triggering**: If a user request matches any capability or keyword of an installed skill, you **MUST automatically activate and read that skill's `SKILL.md`** before taking action. Do NOT wait for the user to explicitly name the skill, type a slash command, or ask you to use it.
+3. **No Reinventing the Wheel**: Never write ad-hoc scripts, speculative code, or improvised workflows for tasks that an established master skill already standardizes. Always use the tested procedures and helper scripts inside `skills/<skill_name>/scripts/`.
+4. **Transparent Invocation**: When activating a skill, state which skill you are applying (e.g., `Using master skill: document-master`) so the user has immediate visibility into the active methodology.
 
-| Domain / Task Type              | Master Skill                   | Core Capability & Routing                                                                                                        |
-| :------------------------------ | :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
-| **Frontend / Web UI / UX**      | `master-frontend-ux`           | Anti-slop design, 21 macrostructures, 50+ themes, 192 palettes, 74 font pairings, WCAG 4.5:1 contrast, sloplint pre-flight gate. |
-| **Code Refactoring & Quality**  | `clean-code-craft`             | Andrej Karpathy coding pitfalls discipline, surgical changes, guard clauses, clarity over cleverness.                            |
-| **Office & PDF Documents**      | `document-master`              | Programmatic Word (`.docx`), Excel (`.xlsx`), PowerPoint (`.pptx`), and PDF forms/extraction/headless LibreOffice.               |
-| **Git & Version Control**       | `git-workflow`                 | Conventional Commits 1.0.0, atomic scoping, reviewer-friendly PR summaries.                                                      |
-| **Security & Hardening**        | `security-and-hardening`       | OWASP Top 10, sanitization of untrusted input, auth protection, secret leak prevention.                                          |
-| **Performance & Optimization**  | `performance-optimization`     | Database queries, N+1 pattern fixes, bundle size reduction, Core Web Vitals (LCP, CLS, INP).                                     |
-| **Web Testing & Browser E2E**   | `webapp-testing`               | Headless Chromium end-to-end testing, UI behavior verification, and console log capture via Playwright.                          |
-| **Multi-Step Complex Tasks**    | `planning-with-files`          | Persistent task plans (`task_plan.md`, `progress.md`, `findings.md`) with PowerShell scripts.                                    |
-| **Codebase Architecture & AST** | `graphify`                     | Tree-sitter AST knowledge graph, dependency mapping, community detection, and architectural queries.                             |
-| **Agent Skill Engineering**     | `agent-skills-builder`         | Scraping, packaging, testing, and repairing Antigravity agent skills.                                                            |
-| **MCP Server Development**      | `mcp-builder`                  | FastMCP (Python) and TypeScript Model Context Protocol server development and evaluation.                                        |
-| **Python Environments**         | `managing-python-dependencies` | Virtual environment isolation (`venv`, `uv`), deterministic lockfiles, preventing global package clutter.                        |
+### B. Master Skill Dispatch Table (12 Orthogonal Domains)
+
+| Domain / Task Type              | Master Skill                   | Automatic Trigger Conditions & Core Capability                                                                                    |
+| :------------------------------ | :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend / Web UI / UX**      | `master-frontend-ux`           | Web UI, React/Vue/HTML/CSS, landing pages, redesigns, themes, fonts, color palettes, responsive layouts, sloplint pre-flight.     |
+| **Code Refactoring & Quality**  | `clean-code-craft`             | Refactoring, code reviews, simplification, removing dead code, Karpathy clean code discipline, flattening complexity.             |
+| **Office & PDF Documents**      | `document-master`              | Any Word (`.docx`), Excel (`.xlsx`), PowerPoint (`.pptx`), or PDF file: generation, tables, charts, forms, OCR, conversion.     |
+| **Git & Version Control**       | `git-workflow`                 | Staging, committing, writing Conventional Commits 1.0.0, branch diffs, creating pull requests, changelogs.                       |
+| **Security & Hardening**        | `security-and-hardening`       | Auth flows, JWT/sessions, OWASP Top 10, sanitizing untrusted inputs, SQL injection/XSS prevention, secrets audits.               |
+| **Performance & Optimization**  | `performance-optimization`     | Slow queries, N+1 patterns, database indexing, Core Web Vitals (LCP/CLS/INP), bundle size reduction, backend profiling.         |
+| **Web Testing & Browser E2E**   | `webapp-testing`               | Browser automation, Playwright tests, UI interaction verification, capturing screenshots, console log diagnostics.                |
+| **Multi-Step Complex Tasks**    | `planning-with-files`          | Tasks requiring 3+ steps or multi-file changes: initializes `task_plan.md`, `progress.md`, and `findings.md` with PowerShell.    |
+| **Codebase Architecture & AST** | `graphify`                     | Codebase exploration, file relationships, dependency mapping, AST knowledge graph generation with Tree-sitter.                   |
+| **Agent Skill Engineering**     | `agent-skills-builder`         | Creating, packaging, validating, testing, repairing, or benchmarking Antigravity skills.                                         |
+| **MCP Server Development**      | `mcp-builder`                  | Building Model Context Protocol servers in Python (FastMCP) or TypeScript (MCP SDK), tool schemas, connections.                  |
+| **Python Environments**         | `managing-python-dependencies` | Python virtual environments (`venv`, `uv`), deterministic dependency management, resolving package conflicts.                     |
 
 ---
 
