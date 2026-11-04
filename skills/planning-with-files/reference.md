@@ -1,8 +1,8 @@
-# Reference: Manus Context Engineering Principles
+# Reference: Context Engineering Principles for Autonomous Agents
 
-This skill is based on context engineering principles from Manus, the AI agent company acquired by Meta for $2 billion in December 2025.
+This skill is based on context engineering principles for production-grade autonomous AI agents for $2 billion in December 2025.
 
-## The 6 Manus Principles
+## The 6 Context Engineering Principles
 
 ### Principle 1: Design Around KV-Cache
 
@@ -77,7 +77,7 @@ End of context: [Recently read task_plan.md - gets ATTENTION!]
 
 ## The 3 Context Engineering Strategies
 
-Based on Lance Martin's analysis of Manus architecture.
+Based on analysis of autonomous multi-step agent architectures.
 
 ### Strategy 1: Context Reduction
 
@@ -115,7 +115,7 @@ RULES:
 └─────────────────────────────────┘
 ```
 
-**Key Insight:** Manus originally used `todo.md` for task planning but found ~33% of actions were spent updating it. Shifted to dedicated planner agent calling executor sub-agents.
+**Key Insight:** Early agent implementations originally used `todo.md` for task planning but found ~33% of actions were spent updating it. Shifted to dedicated planner agent calling executor sub-agents.
 
 ### Strategy 3: Context Offloading
 
@@ -129,7 +129,7 @@ RULES:
 
 ## The Agent Loop
 
-Manus operates in a continuous 7-step loop:
+The autonomous agent operates in a continuous 7-step loop:
 
 ```
 ┌─────────────────────────────────────────┐
@@ -165,7 +165,7 @@ Manus operates in a continuous 7-step loop:
 
 ---
 
-## File Types Manus Creates
+## File Types Created for Planning
 
 | File | Purpose | When Created | When Updated |
 |------|---------|--------------|--------------|
@@ -178,7 +178,7 @@ Manus operates in a continuous 7-step loop:
 
 ## Critical Constraints
 
-- **Single-Action Execution (Manus 2025 original constraint):** ONE tool call per turn, no parallel execution. This documents Manus's 2025 sandbox practice. **2026 update:** modern hosts (Google Antigravity, Codex CLI) support parallel tool calls and subagents, so this constraint no longer applies as written. The plan file, not the one-call-per-turn rule, remains the coordination point: parallel calls and subagents share state through the durable markdown plan on disk.
+- **Single-Action Execution (Early agent constraint):** ONE tool call per turn, no parallel execution. This documents early sandbox practice. **2026 update:** modern hosts (Google Antigravity) support parallel tool calls and subagents, so this constraint no longer applies as written. The plan file, not the one-call-per-turn rule, remains the coordination point: parallel calls and subagents share state through the durable markdown plan on disk.
 - **Plan is Required:** Agent must ALWAYS know: goal, current phase, remaining phases
 - **Files are Memory:** Context = volatile. Filesystem = persistent.
 - **Never Repeat Failures:** If action failed, next action MUST be different
@@ -186,7 +186,7 @@ Manus operates in a continuous 7-step loop:
 
 ---
 
-## Manus Statistics
+## Agent Context Engineering Metrics
 
 | Metric | Value |
 |--------|-------|
@@ -214,5 +214,5 @@ Manus operates in a continuous 7-step loop:
 
 ## Source
 
-Based on Manus's official context engineering documentation:
-https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
+Based on verified context engineering benchmarks:
+Context Engineering for Multi-Step Autonomous Agents

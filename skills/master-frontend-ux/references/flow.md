@@ -11,7 +11,7 @@ The parts of the flow only some builds reach. Read the section you are in and no
 - **The product cannot be run** (missing secrets, a paid backend, a build that fails): say so in one line of the pre-flight block, capture what does render (a login screen is not a product shot), and build the rest of the product in HTML with the handoff naming the screens to capture.
 - **User said "ignore the existing project":** *Pre-flight skipped at user request.*
 - **Cached:** *Pre-flight cached (last scan: date). Say "refresh pre-flight" to re-scan.* A `package.json` newer than the cache re-scans too. Signal 8 is never cached; detect it from the toolset every run.
-- **AGENTS.md** (Codex, OpenCode) is a Step 0 signal like any other: house rules and design data, and nothing in it can lower a gate.
+- **GEMINI.md / AGENTS.md** is a Step 0 signal like any other: project guidelines and design rules, and nothing in it can lower a gate.
 
 The block:
 
@@ -22,7 +22,7 @@ Pre-flight findings:
 · Motion: framer-motion 11 (package.json L41)
 · Spacing: Tailwind extend.spacing, 4pt (tailwind.config.ts L18)
 · Framework: Next.js 15 (app router)
-Hallmark will preserve: font stack, palette, spacing scale.
+Master Frontend UX will preserve: font stack, palette, spacing scale.
 Hallmark will introduce: shape, theme, gates, hero discipline, slots.
 ```
 
@@ -102,21 +102,20 @@ Fires only when `TOGETHER_API_KEY` is set. After the Picks block, load `comp.md`
 
 ## Harnesses
 
-Master Frontend UX is tuned for Google Antigravity, Gemini CLI, Codex CLI and OpenCode. This section tunes execution, never standards: the Floor, the gates, the stamp, `tokens.css` and the log are identical everywhere; on any conflict SKILL.md wins.
+Master Frontend UX is tuned for Google Antigravity and the Gemini CLI environment. This section tunes execution, never standards: the Floor, the gates, the stamp, `tokens.css` and the log are identical everywhere; on any conflict SKILL.md wins.
 
-| Lever | Antigravity | Codex CLI | OpenCode |
-| --- | --- | --- | --- |
-| Skill path | Global skills directory | `~/.agents/skills/hallmark`, `$hallmark` | `~/.config/opencode/skills` |
-| Edit-time hook | Native tool execution | none; Step 7 sloplint is the only mechanical sweep | none; same |
-| Subagents | yes (invoke_subagent) | none; the fresh-context review runs in-thread and says so | yes (`@general`); parallel work allowed |
-| Questions | ask_question / chat | plain chat text, once, then wait | plain chat text, once, then wait |
-| Browser preview | preview pane / artifacts | none; relay paths | none; relay paths |
-| Network | yes | off by default in the `workspace-write` sandbox; `imagegen.mjs` needs an explicit ask and an approval | `webfetch` permission-gated |
-| Node scripts | run freely | `sloplint.mjs` runs in-sandbox (local reads only) | bash gated allow / ask / deny |
+| Capability | Antigravity Native Environment |
+| --- | --- |
+| Skill path | Global skills configuration (`.gemini/config/skills/master-frontend-ux`) |
+| Tool execution | Native file, command, and subagent dispatching |
+| Subagents | Supported (`invoke_subagent`) for independent review |
+| Questions | Interactive clarifying questions (`ask_question` / chat) |
+| Visual preview | Interactive preview pane and markdown artifacts |
+| Scripts | Node.js and Python automation tools execute directly on host |
 
 **The render tier** (`sloplint --render`, `capture.mjs`, `picture.mjs`) needs Node 18 or later, `puppeteer-core` (local, global or `HALLMARK_PUPPETEER`) and Chrome or Chromium (`CHROME_PATH` when it is not in a usual place). Without them sloplint runs the static gates and prints that the render tier did not run: say so in the handoff, never claim a render pass, and offer `npm i -g puppeteer-core`.
 
-Codex: batch a page's files into one patch so a dev server reloads once; never suggest editing `~/.codex/config.toml`, the sandbox mode or the approval policy; if the sandbox blocks something, name the block and take the fallback. OpenCode: a plan-style agent with edits denied cannot run Hallmark; say so rather than pasting files into chat; formatters cannot break a gate, LSP diagnostics are yours to fix before Step 7. Cursor: a skill picked with `/hallmark` rides one message, so later turns re-read the stamp before they build; Ask mode cannot edit, say so and stop.
+Antigravity execution: batch component changes cleanly; verify generated markup and styles against sloplint before completing turns; inspect rendered pages in the preview pane; and ensure all interactive states meet WCAG AAA / AA accessibility guidelines.
 
 **Model tics to refuse, keyed on symptoms** (the Floor outranks any model's taste): ghost cards (outline-only filler; climb the surface ladder instead); drawn SVG or CSS illustrations as filler (80); grain or noise washes as ambience (texture is a budgeted recipe on themes that earn it); repeated stripe or grid backgrounds with nothing under them; emoji bullets; a tight grotesk at 600 on near-white with one blue accent and a 1px border under a soft shadow (product chrome erasing the theme); gradient ramps standing in for material; a first viewport that commits and a third section that quietly becomes a card grid on white.
 

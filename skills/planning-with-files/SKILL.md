@@ -8,7 +8,7 @@ metadata:
 
 # Planning with Files
 
-Work like Manus: Use persistent markdown files as your "working memory on disk."
+Work autonomously: Use persistent markdown files as your "working memory on disk."
 
 ## FIRST: Restore Project State
 
@@ -200,7 +200,7 @@ Helper scripts for automation:
 - `scripts/set-active-plan.sh` — Switch the active plan pointer (`.planning/.active_plan`). Run with a plan ID to switch; run without args to show which plan is current.
 - `scripts/resolve-plan-dir.sh` — Resolve the active plan directory. A set `$PLAN_ID` is a binding: it resolves or resolution stops, never another plan (issue #237). With no `$PLAN_ID`, multiple named plans refuse selection. A single named plan may use `.planning/.active_plan` or discovery by mtime; otherwise resolution falls back to the project root (legacy). Used internally by hooks.
 - `scripts/check-complete.sh` — Verify all phases in the active plan are complete.
-- `scripts/session-catchup.py`: Explicit same-project session-record aggregation or bounded replay (`--metadata` / `--replay`); bare invocation does not access host history. OpenCode uses its read-only SQLite store.
+- `scripts/session-catchup.py`: Explicit same-project session-record aggregation or bounded replay (`--metadata` / `--replay`); bare invocation does not access host history. Supported stores use their read-only local store.
 - `scripts/attest-plan.sh` (and `.ps1`) — Lock the current `task_plan.md` content with a SHA-256 attestation (v2.37.0). Use `--show` to print the stored hash, `--clear` to remove the attestation.
 
 ### List saved plans
@@ -231,7 +231,7 @@ Use `set-active-plan` for sequential switching of the shared default pointer. Co
 
 ## Advanced Topics
 
-- **Manus Principles:** See [references/reference.md](references/reference.md)
+- **Context Engineering Principles:** See [references/reference.md](references/reference.md)
 - **Real Examples:** See [references/examples.md](references/examples.md)
 
 ## Security Boundary

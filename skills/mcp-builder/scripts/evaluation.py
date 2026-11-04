@@ -14,10 +14,14 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
+# LLM Evaluation client adapter
 try:
-    from anthropic import Anthropic
-except ImportError:
-    Anthropic = None
+    import importlib
+    _provider = os.getenv("EVAL_PROVIDER_MODULE", "eval_client")
+    _mod = importlib.import_module(_provider)
+    ModelClient = getattr(_mod, "Client", None) or getattr(_mod, "ModelClient", None)
+except Exception:
+    ModelClient = None
 
 from connections import create_connection
 
@@ -228,9 +232,9 @@ async def run_evaluation(
     """Run evaluation with MCP server tools."""
     print("🚀 Starting Evaluation")
 
-    if Anthropic is None:
-        raise RuntimeError('Please install an evaluation runner library (e.g., pip install anthropic) or configure your LLM evaluation provider.')
-    client = Anthropic()
+    if ModelClient is None:
+        raise RuntimeError('Please install an evaluation runner library (e.g., install your model runner SDK) or configure your LLM evaluation provider.')
+    client = ModelClient()
 
     tools = await connection.list_tools()
     print(f"📋 Loaded {len(tools)} tools from MCP server")

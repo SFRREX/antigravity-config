@@ -23,7 +23,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 def configure_utf8_stdio() -> None:
     """Make catchup output deterministic on Windows legacy code pages.
 
-    Codex sessions and planning files are UTF-8 and can contain arbitrary
+    Agent sessions and planning files are UTF-8 and can contain arbitrary
     Unicode. Windows PowerShell may nevertheless launch Python with a cp1252
     (or another OEM/ANSI) stdout codec. A report containing Chinese text then
     used to fail at the first ``print`` with ``UnicodeEncodeError``. Configure
@@ -368,8 +368,8 @@ def is_codex_project_session(session: Path, project_cmp: str) -> bool:
     return bool(cwd and normalize_for_compare(cwd) == project_cmp)
 
 
-def get_codex_sessions(project_path: str) -> Iterable[Path]:
-    sessions_dir = Path(os.path.expanduser(os.getenv('CODEX_SESSIONS_DIR', '~/.codex/sessions')))
+def get_external_sessions(project_path: str) -> Iterable[Path]:
+    sessions_dir = Path(os.path.expanduser(os.getenv('AGENT_SESSIONS_DIR', '~/.agent/sessions')))
     if not sessions_dir.exists():
         return
 
@@ -390,11 +390,11 @@ def get_session_candidates(
     project_path: str, *, emit_notices: bool = True
 ) -> Tuple[str, Iterable[Path]]:
     script_path = Path(__file__).resolve().as_posix().lower()
-    if script_path.endswith('/.codex/skills/planning-with-files/scripts/session-catchup.py'):
-        return 'codex', get_codex_sessions(project_path)
-    if script_path.endswith('/.opencode/skills/planning-with-files/scripts/session-catchup.py'):
-        # OpenCode dispatch is handled separately via SQLite (v2.38.0+).
-        return 'opencode', []
+    if script_path.endswith('/.agent/skills/planning-with-files/scripts/session-catchup.py'):
+        return 'agent', get_external_sessions(project_path)
+    if script_path.endswith('/.external/skills/planning-with-files/scripts/session-catchup.py'):
+        # External dispatch is handled separately via SQLite (v2.38.0+).
+        return 'external', []
 
     claude_project_dir = get_agent_project_dir(project_path)
     if claude_project_dir.exists():
@@ -408,15 +408,15 @@ def get_session_candidates(
 
 
 def get_opencode_db_path() -> Optional[Path]:
-    """Resolve OpenCode SQLite path. Same on all OS per xdg-basedir."""
+    """Resolve external SQLite path. Same on all OS per xdg-basedir."""
     xdg = os.environ.get('XDG_DATA_HOME')
     if xdg:
-        base = Path(xdg) / 'opencode'
+        base = Path(xdg) / 'agent'
     elif os.environ.get('OPENCODE_DATA_DIR'):
         base = Path(os.environ['OPENCODE_DATA_DIR'])
     else:
-        base = Path.home() / '.local' / 'share' / 'opencode'
-    db = base / 'opencode.db'
+        base = Path.home() / '.local' / 'share' / 'agent'
+    db = base / 'agent.db'
     return db if db.exists() else None
 
 
@@ -447,9 +447,9 @@ def result_annotation(is_error: bool, content: Any) -> str:
 
 
 def _opencode_state_annotation(state: Any) -> str:
-    """Outcome annotation for one OpenCode tool part.
+    """Outcome annotation for one external tool part.
 
-    Newer OpenCode schemas carry a terminal status plus output/error text on
+    Newer external schemas carry a terminal status plus output/error text on
     part.state. Rows without a terminal status (older schemas, pending or
     running states) must render exactly as before, so this returns '' then.
     """
@@ -467,7 +467,7 @@ def _opencode_state_annotation(state: Any) -> str:
 
 
 def _format_opencode_part(data: Dict[str, Any], session_id: str) -> Optional[Dict[str, Any]]:
-    """Print-ready summary for one OpenCode part row."""
+    """Print-ready summary for one external part row."""
     if not isinstance(data, dict):
         return None
     ptype = data.get('type')
@@ -526,9 +526,9 @@ def parse_cli_args(argv: List[str]) -> Tuple[str, str]:
 
 
 def opencode_catchup(project_path: str, mode: str = 'no-history') -> None:
-    """Session catchup for OpenCode SQLite (v2.38.0+).
+    """Session catchup for external SQLite (v2.38.0+).
 
-    Schema as of sst/opencode dev @ 2026-05-14:
+    Schema as of external agent dev:
       session (id, directory, time_created, ...)
       part    (id, session_id, message_id, time_created, data TEXT JSON)
     """
@@ -657,10 +657,10 @@ def opencode_catchup(project_path: str, mode: str = 'no-history') -> None:
         return
 
     if mode != 'replay':
-        emit_metadata_report('opencode', len(parts))
+        emit_metadata_report('external', len(parts))
         return
 
-    print(f"\n[planning-with-files] SESSION CATCHUP DETECTED (IDE: opencode)")
+    print(f"\n[planning-with-files] SESSION CATCHUP DETECTED (IDE: external)")
     print(f"Last planning update in {safe_session_label(update_sid)}")
     if update_idx + 1 > 1:
         print(f"Scanning {update_idx + 1} previous sessions for unsynced context")
@@ -723,7 +723,7 @@ def planning_file_from_paths(paths: Iterable[Any]) -> Optional[str]:
 
 
 def codex_planning_update(payload: Dict[str, Any]) -> Optional[str]:
-    """Use Codex's structured apply_patch result instead of parsing tool text."""
+    """Use structured apply_patch result instead of parsing tool text."""
     if payload.get('type') != 'patch_apply_end' or payload.get('success') is not True:
         return None
     changes = payload.get('changes')
@@ -942,7 +942,7 @@ def main():
         project_path, emit_notices=(mode == 'replay')
     )
 
-    if runtime_name == 'opencode':
+    if runtime_name == 'external':
         opencode_catchup(project_path, mode=mode)
         return
 
@@ -983,7 +983,7 @@ def main():
     print(f"Unsynced messages: {len(messages_after)}")
 
     print("\n--- UNSYNCED CONTEXT ---")
-    assistant_label = 'CODEX' if runtime_name == 'codex' else 'ASSISTANT'
+    assistant_label = 'ASSISTANT'
     for msg in messages_after[-15:]:  # Last 15 messages
         if msg['role'] == 'user':
             print(frame_untrusted_context('transcript', f"USER: {msg['content'][:300]}"))
