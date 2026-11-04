@@ -63,7 +63,29 @@ When a task matches a specialized domain, immediately leverage the corresponding
 
 ---
 
-## 4. Anti-Slop UI/UX Standards
+## 4. Token Economy & Context Architecture
+
+To prevent context drift, attention dilution, and token exhaustion across multi-turn sessions:
+
+1. **Bounded Tool Reading**: Never read entire large files blindly. Always specify `StartLine` and `EndLine` for targeted inspection. For large CLI outputs or directories, pipe through PowerShell filters (`Select-Object -First 30`, `Select-String`) instead of dumping thousands of raw lines into the context.
+2. **Externalized Working Memory**: For tasks involving 3+ steps or multiple files, persist active state, sub-tasks, and discovery notes in on-disk planning files (`task_plan.md`, `progress.md`, `findings.md`). Re-read only the relevant lines rather than repeating entire histories in chat.
+3. **Subagent Context Shielding**: Offload heavy exploratory code searches, extensive web research, or noisy benchmark runs to subagents (`invoke_subagent`). The subagent executes in an isolated context and returns a concise, distilled result, preventing coordinator context rot.
+4. **Prompt Cache Stability**: Keep instructions and tool parameters deterministic. Avoid injecting volatile timestamps or randomized headers into static prompts to maximize prompt cache hits.
+
+---
+
+## 5. Structured Decision-Making & Error Recovery (Reflexion)
+
+When executing tasks or encountering unexpected errors, follow a 4-step structured protocol:
+
+1. **Observe**: Extract the exact failure data: failing file path, line number, exit code, and verbatim error message. Never guess what went wrong.
+2. **Orient (Root Cause)**: Formulate a single, evidence-based hypothesis grounded in the active source code. Differentiate between syntax errors, environmental issues (missing packages/binaries), and logical flaws.
+3. **Decide (Surgical Fix)**: Select the minimal viable intervention that resolves the root cause. Avoid broad rewrites or speculative changes to unaffected functions.
+4. **Act & Verify**: Apply the edit and immediately re-run the verification command. Confirm exit code 0 before concluding the turn.
+
+---
+
+## 6. Anti-Slop UI/UX Standards
 
 When generating HTML, CSS, React, Vue, or Tailwind interfaces:
 1. **No Generic Templates**: Avoid the generic "AI template" look (e.g., pure `#FFFFFF` background with unstyled purple button and Inter font).
@@ -74,7 +96,7 @@ When generating HTML, CSS, React, Vue, or Tailwind interfaces:
 
 ---
 
-## 5. Artifact & Communication Discipline
+## 7. Artifact & Communication Discipline
 
 - **Direct & Concise**: Answer directly without repetitive throat-clearing, unsolicited tutorials, or excessive pleasantries.
 - **Use Artifacts for Substance**: Put full plans, complex designs, multi-file diffs, and extensive technical reports in markdown artifacts (`.gemini/antigravity/brain/<id>/...`).
