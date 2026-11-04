@@ -19,6 +19,15 @@ All 12 standalone skills are 100% orthogonal, zero-overlap, and optimized for na
 11. **`mcp-builder`**: FastMCP / TypeScript MCP server architecture (includes v1 and v2 `@modelcontextprotocol/sdk` specifications).
 12. **`managing-python-dependencies`**: Virtual environments and dependency isolation (uv, pip, venv).
 
+## 🧠 Intelligent Agent Operating System (IAOS)
+
+Governed by global rules in GEMINI.md and AGENTS.md based on the [Production AI Agent Engineering & Optimization Guide](docs/AGENT_ENGINEERING_OPTIMIZATION_GUIDE.md):
+- **Evidence Before Assertions**: Mandatory empirical verification (tests, linting, exit code 0) before claiming completion.
+- **Side-Effect Taxonomy**: Level 0 (Read-Only) to Level 3 (Irreversible/High-Impact with explicit confirmation).
+- **6-Step Verification Ladder**: Schema -> Invariants -> Unit Tests -> Live State -> Peer Review -> User Approval.
+- **Context Engineering**: Bounded line reads, filtered PowerShell streams, externalized state (	ask_plan.md), and subagent context shielding.
+- **Windows Native First**: 100% PowerShell cmdlets and UTF-8 stdio.
+
 ## 📦 Active Plugins (14)
 - **`superpowers`**: 15 engineering skills (TDD, systematic debugging, brainstorming, worktrees, plan execution).
 - **`stitch-build`**, **`stitch-design`**, **`stitch-utilities`**: Google Stitch design-to-code suite (React, React Native, shadcn/ui, design tokens).
