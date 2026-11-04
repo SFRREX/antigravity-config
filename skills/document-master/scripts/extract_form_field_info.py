@@ -116,7 +116,7 @@ def write_field_info(pdf_path: str, json_output_path: str):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 3 or any(a in ("-h", "--help") for a in sys.argv):
         print("Usage: extract_form_field_info.py [input pdf] [output json]")
-        sys.exit(1)
+        sys.exit(0 if any(a in ("-h", "--help") for a in sys.argv) else 1)
     write_field_info(sys.argv[1], sys.argv[2])

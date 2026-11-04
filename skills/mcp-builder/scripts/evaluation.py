@@ -23,6 +23,7 @@ try:
 except Exception:
     ModelClient = None
 
+sys.path.insert(0, str(Path(__file__).parent))
 from connections import create_connection
 
 EVALUATION_PROMPT = """You are an AI assistant with access to tools.

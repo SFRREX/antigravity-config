@@ -283,10 +283,10 @@ def clean_unused_files(unpacked_dir: Path) -> list[str]:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 2 or sys.argv[1] in ("-h", "--help"):
         print("Usage: python clean.py <unpacked_dir>", file=sys.stderr)
         print("Example: python clean.py unpacked/", file=sys.stderr)
-        sys.exit(1)
+        sys.exit(0 if (len(sys.argv) == 2 and sys.argv[1] in ("-h", "--help")) else 1)
 
     unpacked_dir = Path(sys.argv[1])
 

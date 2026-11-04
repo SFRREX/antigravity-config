@@ -14,7 +14,14 @@ import fnmatch
 import sys
 import zipfile
 from pathlib import Path
-from scripts.quick_validate import validate_skill
+try:
+    from scripts.quick_validate import validate_skill
+except ModuleNotFoundError:
+    try:
+        from quick_validate import validate_skill
+    except ModuleNotFoundError:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from quick_validate import validate_skill
 
 # Patterns to exclude when packaging skills.
 EXCLUDE_DIRS = {"__pycache__", "node_modules"}
@@ -100,26 +107,26 @@ def package_skill(skill_path, output_dir=None):
                 zipf.write(file_path, arcname)
                 print(f"  Added: {arcname}")
 
-        print(f"\n✅ Successfully packaged skill to: {skill_filename}")
+        print(f"\n[OK] Successfully packaged skill to: {skill_filename}")
         return skill_filename
 
     except Exception as e:
-        print(f"❌ Error creating .skill file: {e}")
+        print(f"[ERROR] Error creating .skill file: {e}")
         return None
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python utils/package_skill.py <path/to/skill-folder> [output-directory]")
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
+        print("Usage: python package_skill.py <path/to/skill-folder> [output-directory]")
         print("\nExample:")
-        print("  python utils/package_skill.py skills/public/my-skill")
-        print("  python utils/package_skill.py skills/public/my-skill ./dist")
-        sys.exit(1)
+        print("  python package_skill.py skills/my-skill")
+        print("  python package_skill.py skills/my-skill ./dist")
+        sys.exit(0 if (len(sys.argv) >= 2 and sys.argv[1] in ("-h", "--help")) else 1)
 
     skill_path = sys.argv[1]
     output_dir = sys.argv[2] if len(sys.argv) > 2 else None
 
-    print(f"📦 Packaging skill: {skill_path}")
+    print(f"[*] Packaging skill: {skill_path}")
     if output_dir:
         print(f"   Output directory: {output_dir}")
     print()

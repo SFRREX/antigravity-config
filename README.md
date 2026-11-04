@@ -46,7 +46,7 @@ When setting up Antigravity on a new computer:
 
 2. **Install the runtime packages**:
    ```powershell
-   python -m pip install playwright graphifyy openpyxl pandas pypdf pdfplumber
+   python -m pip install playwright graphifyy openpyxl pandas pypdf pdfplumber reportlab pypdfium2 lxml mcp
    python -m playwright install chromium
    ```
 

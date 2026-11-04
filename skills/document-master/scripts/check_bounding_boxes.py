@@ -56,9 +56,9 @@ def get_bounding_box_messages(fields_json_stream) -> list[str]:
     return messages
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 2 or sys.argv[1] in ("-h", "--help"):
         print("Usage: check_bounding_boxes.py [fields.json]")
-        sys.exit(1)
+        sys.exit(0 if (len(sys.argv) == 2 and sys.argv[1] in ("-h", "--help")) else 1)
     with open(sys.argv[1]) as f:
         messages = get_bounding_box_messages(f)
     for msg in messages:

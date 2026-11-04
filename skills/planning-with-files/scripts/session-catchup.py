@@ -190,7 +190,7 @@ def get_sessions_sorted(project_dir: Path) -> List[Path]:
     return sorted(main_sessions, key=safe_stat_mtime, reverse=True)
 
 
-def claude_session_cwd(session_file: Path) -> Optional[str]:
+def agent_session_cwd(session_file: Path) -> Optional[str]:
     """The cwd an agent transcript records, or None if it records none."""
     try:
         with open(session_file, 'r', encoding='utf-8', errors='replace') as f:
@@ -277,7 +277,7 @@ def filter_sessions_by_cwd(sessions: List[Path], project_path: str) -> Tuple[Lis
     unknown: List[Path] = []
     foreign: List[str] = []
     for session in sessions:
-        cwd = claude_session_cwd(session)
+        cwd = agent_session_cwd(session)
         if cwd is None:
             unknown.append(session)
         elif same_project_path(cwd, project_cmp):
@@ -323,7 +323,7 @@ def is_substantial_session(session: Path) -> bool:
         return False
 
 
-def read_codex_meta(session_file: Path) -> Optional[Dict[str, Any]]:
+def read_agent_meta(session_file: Path) -> Optional[Dict[str, Any]]:
     """Read the first session_meta; later meta records may be copied parent context."""
     try:
         with open(session_file, 'r', encoding='utf-8', errors='replace') as f:
@@ -338,13 +338,13 @@ def read_codex_meta(session_file: Path) -> Optional[Dict[str, Any]]:
     return None
 
 
-def codex_meta_cwd(meta: Dict[str, Any]) -> Optional[str]:
+def agent_meta_cwd(meta: Dict[str, Any]) -> Optional[str]:
     cwd = meta.get('cwd')
     return cwd if isinstance(cwd, str) else None
 
 
-def find_current_codex_session(sessions: List[Path]) -> Optional[Path]:
-    thread_id = os.getenv('CODEX_THREAD_ID', '').strip()
+def find_current_agent_session(sessions: List[Path]) -> Optional[Path]:
+    thread_id = os.getenv('AGENT_THREAD_ID', '').strip()
     if not thread_id:
         return None
 
@@ -354,17 +354,17 @@ def find_current_codex_session(sessions: List[Path]) -> Optional[Path]:
     return None
 
 
-def is_codex_project_session(session: Path, project_cmp: str) -> bool:
+def is_agent_project_session(session: Path, project_cmp: str) -> bool:
     if not is_substantial_session(session):
         return False
 
-    meta = read_codex_meta(session)
+    meta = read_agent_meta(session)
     if not meta:
         return False
     source = meta.get('source')
     if isinstance(source, dict) and 'subagent' in source:
         return False
-    cwd = codex_meta_cwd(meta)
+    cwd = agent_meta_cwd(meta)
     return bool(cwd and normalize_for_compare(cwd) == project_cmp)
 
 
@@ -375,14 +375,14 @@ def get_external_sessions(project_path: str) -> Iterable[Path]:
 
     project_cmp = normalize_for_compare(project_path)
     sessions = sorted(sessions_dir.rglob('rollout-*.jsonl'), key=safe_stat_mtime, reverse=True)
-    current = find_current_codex_session(sessions)
-    if current and is_codex_project_session(current, project_cmp):
+    current = find_current_agent_session(sessions)
+    if current and is_agent_project_session(current, project_cmp):
         yield current
 
     for session in sessions:
         if session == current:
             continue
-        if is_codex_project_session(session, project_cmp):
+        if is_agent_project_session(session, project_cmp):
             yield session
 
 
@@ -396,10 +396,10 @@ def get_session_candidates(
         # External dispatch is handled separately via SQLite (v2.38.0+).
         return 'external', []
 
-    claude_project_dir = get_agent_project_dir(project_path)
-    if claude_project_dir.exists():
+    agent_project_dir = get_agent_project_dir(project_path)
+    if agent_project_dir.exists():
         sessions, notice = filter_sessions_by_cwd(
-            get_sessions_sorted(claude_project_dir), project_path
+            get_sessions_sorted(agent_project_dir), project_path
         )
         if notice and emit_notices:
             print(notice)
@@ -407,13 +407,13 @@ def get_session_candidates(
     return 'agent', []
 
 
-def get_opencode_db_path() -> Optional[Path]:
+def get_agent_db_path() -> Optional[Path]:
     """Resolve external SQLite path. Same on all OS per xdg-basedir."""
     xdg = os.environ.get('XDG_DATA_HOME')
     if xdg:
         base = Path(xdg) / 'agent'
-    elif os.environ.get('OPENCODE_DATA_DIR'):
-        base = Path(os.environ['OPENCODE_DATA_DIR'])
+    elif os.environ.get('AGENT_DATA_DIR'):
+        base = Path(os.environ['AGENT_DATA_DIR'])
     else:
         base = Path.home() / '.local' / 'share' / 'agent'
     db = base / 'agent.db'
@@ -446,7 +446,7 @@ def result_annotation(is_error: bool, content: Any) -> str:
     return f" -> FAILED ({excerpt})" if excerpt else ' -> FAILED'
 
 
-def _opencode_state_annotation(state: Any) -> str:
+def _agent_state_annotation(state: Any) -> str:
     """Outcome annotation for one external tool part.
 
     Newer external schemas carry a terminal status plus output/error text on
@@ -466,7 +466,7 @@ def _opencode_state_annotation(state: Any) -> str:
     return ''
 
 
-def _format_opencode_part(data: Dict[str, Any], session_id: str) -> Optional[Dict[str, Any]]:
+def _format_agent_part(data: Dict[str, Any], session_id: str) -> Optional[Dict[str, Any]]:
     """Print-ready summary for one external part row."""
     if not isinstance(data, dict):
         return None
@@ -478,7 +478,7 @@ def _format_opencode_part(data: Dict[str, Any], session_id: str) -> Optional[Dic
         state = data.get('state') or {}
         input_ = state.get('input') if isinstance(state, dict) else None
         input_ = input_ if isinstance(input_, dict) else {}
-        outcome = _opencode_state_annotation(state)
+        outcome = _agent_state_annotation(state)
         if tool in ('write', 'edit'):
             fp = input_.get('filePath', '')
             return {'session': short, 'summary': f"Tool {tool}: {fp}{outcome}"}
@@ -510,7 +510,10 @@ def parse_cli_args(argv: List[str]) -> Tuple[str, str]:
     mode = 'no-history'
     project_path: Optional[str] = None
     for arg in argv[1:]:
-        if arg == '--no-history':
+        if arg in ('-h', '--help'):
+            print("Usage: session-catchup.py [--metadata | --replay | --no-history] [project_path]")
+            sys.exit(0)
+        elif arg == '--no-history':
             mode = 'no-history'
         elif arg == '--metadata':
             mode = 'metadata'
@@ -525,7 +528,7 @@ def parse_cli_args(argv: List[str]) -> Tuple[str, str]:
     return mode, project_path or os.getcwd()
 
 
-def opencode_catchup(project_path: str, mode: str = 'no-history') -> None:
+def agent_db_catchup(project_path: str, mode: str = 'no-history') -> None:
     """Session catchup for external SQLite (v2.38.0+).
 
     Schema as of external agent dev:
@@ -537,7 +540,7 @@ def opencode_catchup(project_path: str, mode: str = 'no-history') -> None:
 
     import sqlite3
 
-    db_path = get_opencode_db_path()
+    db_path = get_agent_db_path()
     if not db_path:
         return
 
@@ -633,7 +636,7 @@ def opencode_catchup(project_path: str, mode: str = 'no-history') -> None:
             data = json.loads(data_str)
         except json.JSONDecodeError:
             continue
-        msg = _format_opencode_part(data, update_sid)
+        msg = _format_agent_part(data, update_sid)
         if msg:
             parts.append(msg)
 
@@ -647,7 +650,7 @@ def opencode_catchup(project_path: str, mode: str = 'no-history') -> None:
                 data = json.loads(data_str)
             except json.JSONDecodeError:
                 continue
-            msg = _format_opencode_part(data, sid)
+            msg = _format_agent_part(data, sid)
             if msg:
                 parts.append(msg)
 
@@ -722,7 +725,7 @@ def planning_file_from_paths(paths: Iterable[Any]) -> Optional[str]:
     return None
 
 
-def codex_planning_update(payload: Dict[str, Any]) -> Optional[str]:
+def agent_planning_update(payload: Dict[str, Any]) -> Optional[str]:
     """Use structured apply_patch result instead of parsing tool text."""
     if payload.get('type') != 'patch_apply_end' or payload.get('success') is not True:
         return None
@@ -763,7 +766,7 @@ def find_last_planning_update(messages: List[Dict[str, Any]]) -> Tuple[int, Opti
         elif msg_type == 'event_msg':
             payload = msg.get('payload')
             if isinstance(payload, dict):
-                planning_file = codex_planning_update(payload)
+                planning_file = agent_planning_update(payload)
                 if planning_file:
                     last_update_line = line_num
                     last_update_file = planning_file
@@ -783,7 +786,7 @@ def text_content(content: Any) -> str:
     )
 
 
-def parse_codex_tool_args(payload: Dict[str, Any]) -> Tuple[Dict[str, Any], str]:
+def parse_agent_tool_args(payload: Dict[str, Any]) -> Tuple[Dict[str, Any], str]:
     raw_args = payload.get('arguments', payload.get('input', ''))
     if isinstance(raw_args, dict):
         return raw_args, json.dumps(raw_args, ensure_ascii=True)
@@ -793,9 +796,9 @@ def parse_codex_tool_args(payload: Dict[str, Any]) -> Tuple[Dict[str, Any], str]
     return (decoded, raw_args) if isinstance(decoded, dict) else ({}, raw_args)
 
 
-def summarize_codex_tool(payload: Dict[str, Any]) -> str:
+def summarize_agent_tool(payload: Dict[str, Any]) -> str:
     tool_name = payload.get('name', 'tool')
-    tool_args, raw_args = parse_codex_tool_args(payload)
+    tool_args, raw_args = parse_agent_tool_args(payload)
     if tool_name == 'exec_command':
         command = tool_args.get('cmd', raw_args)
         if isinstance(command, str):
@@ -803,7 +806,7 @@ def summarize_codex_tool(payload: Dict[str, Any]) -> str:
     return str(tool_name)
 
 
-def collect_claude_tool_results(messages: List[Dict[str, Any]]) -> Dict[str, str]:
+def collect_agent_tool_results(messages: List[Dict[str, Any]]) -> Dict[str, str]:
     """Map tool_use id -> outcome annotation from user-side tool_result entries.
 
     Transcripts record tool results as user messages whose content list holds
@@ -833,7 +836,7 @@ def collect_claude_tool_results(messages: List[Dict[str, Any]]) -> Dict[str, str
 
 def extract_messages_after(messages: List[Dict[str, Any]], after_line: int) -> List[Dict[str, Any]]:
     """Extract conversation messages after a certain line number."""
-    tool_results = collect_claude_tool_results(messages)
+    tool_results = collect_agent_tool_results(messages)
     result = []
     for msg in messages:
         line_num = msg.get('_line_num')
@@ -914,7 +917,7 @@ def extract_messages_after(messages: List[Dict[str, Any]], after_line: int) -> L
                 result.append({
                     'role': 'assistant',
                     'content': '',
-                    'tools': [summarize_codex_tool(payload)],
+                    'tools': [summarize_agent_tool(payload)],
                     'line': line_num
                 })
 
@@ -943,7 +946,7 @@ def main():
     )
 
     if runtime_name == 'external':
-        opencode_catchup(project_path, mode=mode)
+        agent_db_catchup(project_path, mode=mode)
         return
 
     # Find a substantial previous session

@@ -283,7 +283,7 @@ def main():
     args = [a for a in sys.argv[1:] if a != "--force"]
     force = "--force" in sys.argv[1:]
 
-    if not args:
+    if not args or args[0] in ("-h", "--help"):
         print("Usage: python recalc.py <excel_file> [timeout_seconds] [--force]")
         print("\nRecalculates all formulas in an Excel file using LibreOffice")
         print("\nReturns JSON with error details:")
@@ -294,7 +294,7 @@ def main():
         print("    - #VALUE!, #DIV/0!, #REF!, #NAME?, #NULL!, #NUM!, #N/A")
         print("\nOn any failure the JSON has an 'error' key and no 'status'.")
         print("--force recalculates even when it would destroy external links.")
-        sys.exit(1)
+        sys.exit(0 if (args and args[0] in ("-h", "--help")) else 1)
 
     filename = args[0]
     timeout = int(args[1]) if len(args) > 1 else 30

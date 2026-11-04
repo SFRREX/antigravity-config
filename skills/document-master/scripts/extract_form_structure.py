@@ -89,9 +89,9 @@ def extract_form_structure(pdf_path):
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 3 or any(a in ("-h", "--help") for a in sys.argv):
         print("Usage: extract_form_structure.py <input.pdf> <output.json>")
-        sys.exit(1)
+        sys.exit(0 if any(a in ("-h", "--help") for a in sys.argv) else 1)
 
     pdf_path = sys.argv[1]
     output_path = sys.argv[2]

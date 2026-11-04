@@ -297,3 +297,4 @@ Always run schema validation on generated or edited Office documents:
 python scripts/office/validate.py output.docx
 python scripts/office/validate.py presentation.pptx
 ```
+

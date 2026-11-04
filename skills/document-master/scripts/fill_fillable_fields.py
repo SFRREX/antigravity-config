@@ -88,9 +88,9 @@ def monkeypatch_pydpf_method():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 4 or any(a in ("-h", "--help") for a in sys.argv):
         print("Usage: fill_fillable_fields.py [input pdf] [field_values.json] [output pdf]")
-        sys.exit(1)
+        sys.exit(0 if any(a in ("-h", "--help") for a in sys.argv) else 1)
     monkeypatch_pydpf_method()
     input_pdf = sys.argv[1]
     fields_json = sys.argv[2]
