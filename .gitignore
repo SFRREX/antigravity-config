@@ -1,4 +1,4 @@
-# Local cache and dependencies
+# Local cache, logs, and dependencies
 node_modules/
 projects/
 sidecars/
@@ -10,6 +10,30 @@ Thumbs.db
 __pycache__/
 *.pyc
 
-# Archived backup skills
+# Local machine-specific configuration
+config.json
+mcp_config.json
+
+# Default preloaded Antigravity official marketplace plugins
+plugins/android-cli-plugin/
+plugins/chrome-devtools-plugin/
+plugins/data-agent-kit-plugin/
+plugins/firebase/
+plugins/flutter/
+plugins/gcalendar/
+plugins/gdocs/
+plugins/gdrive/
+plugins/gemini-api/
+plugins/google-antigravity-sdk/
+plugins/google-cloud-developer/
+plugins/google-developer-knowledge/
+plugins/google_maps_platform/
+plugins/gsheets/
+plugins/gslides/
+plugins/modern-web-guidance-plugin/
+plugins/science/
+
+# Default preloaded internal manifests & archives
+skills/.datacloud_skills_manifest
 skills/.archive/
 **/.archive*/

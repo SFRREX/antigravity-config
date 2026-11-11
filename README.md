@@ -6,7 +6,7 @@
 [![Superpowers](https://img.shields.io/badge/Superpowers-15%20Autonomous%20Sub--Skills-FF6B6B.svg?style=flat-square)](#-superpowers-suite-15-autonomous-sub-skills)
 [![Master Skills](https://img.shields.io/badge/Master%20Skills-12%20Orthogonal%20Engines-00C853.svg?style=flat-square)](#-the-12-orthogonal-master-skills)
 [![Specialized Skills](https://img.shields.io/badge/Specialized%20Skills-9%20Creative%20%26%20Strategy-FF9100.svg?style=flat-square)](#-specialized-skills-9-creative--strategy-engines)
-[![Plugins](https://img.shields.io/badge/Plugins-23%20Production%20Suites-00B0FF.svg?style=flat-square)](#-active-production-plugins-ecosystem-23)
+[![Custom Plugins](https://img.shields.io/badge/Custom%20Plugins-6%20Advanced%20Suites-00B0FF.svg?style=flat-square)](#-custom-plugins-ecosystem)
 [![Verification](https://img.shields.io/badge/Guardrails-6--Step%20Verification%20Ladder-7C4DFF.svg?style=flat-square)](#-the-6-step-verification-ladder)
 [![License](https://img.shields.io/badge/License-MIT-FBC02D.svg?style=flat-square)](LICENSE)
 
@@ -30,7 +30,7 @@
 4. [⚡ Superpowers Suite (15 Autonomous Sub-Skills)](#-superpowers-suite-15-autonomous-sub-skills)
 5. [🛠️ The 12 Orthogonal Master Skills](#-the-12-orthogonal-master-skills)
 6. [🎨 Specialized Skills (9 Creative & Strategy Engines)](#-specialized-skills-9-creative--strategy-engines)
-7. [📦 Active Production Plugins Ecosystem (23)](#-active-production-plugins-ecosystem-23)
+7. [📦 Custom Plugins Ecosystem (6 Advanced Suites)](#-custom-plugins-ecosystem-6-advanced-suites)
 8. [🛡️ The 6-Step Verification Ladder](#-the-6-step-verification-ladder)
 9. [⚡ Quick Start & Installation](#-quick-start--installation)
 10. [📁 Complete Repository Structure](#-complete-repository-structure)
@@ -345,68 +345,32 @@ In addition to the 12 core master skills, IAOS includes 9 specialized creative, 
 
 ---
 
-## 📦 Active Production Plugins Ecosystem (23)
+## 📦 Custom Plugins Ecosystem (6 Advanced Suites)
 
-IAOS registers and manages 23 modular production plugins across every layer of the modern developer stack:
+> **Note on Default Preloaded Plugins:** Antigravity already ships with or preloads official marketplace plugins out-of-the-box (e.g. `gdocs`, `gcalendar`, `gdrive`, `gsheets`, `gslides`, `gemini-api`, `google-cloud-developer`, `google-developer-knowledge`, `google_maps_platform`, `google-antigravity-sdk`, `firebase`, `flutter`, `android-cli-plugin`, `chrome-devtools-plugin`, `science`, `data-agent-kit-plugin`, `modern-web-guidance-plugin`). To maintain a clean, lightweight repository, prevent merge conflicts, and avoid overriding user-specific environments, **those default preloaded plugins are managed natively by Antigravity and omitted from git tracking**.
+
+This repository focuses exclusively on high-agency, custom, and partner extensions:
 
 ```mermaid
 mindmap
-  root((Active Plugins<br/>23 Suites))
-    Core Engineering
+  root((Custom Plugins<br/>6 Advanced Suites))
+    Autonomous Engineering
       superpowers
-      modern-web-guidance
-      google-antigravity-sdk
-    Design & UI
+    Design & UI Engine
       stitch-build
       stitch-design
       stitch-utilities
-    Browser & Diagnostics
-      chrome-devtools-plugin
-    Cloud & Edge Runtimes
+    Cloud & Edge Infrastructure
       cloudflare
       vercel-plugin
-      google-cloud-developer
-      google-developer-knowledge
-    Mobile Platforms
-      flutter
-      android-cli-plugin
-    Data & AI SDKs
-      firebase
-      gemini-api
-      data-agent-kit-plugin
-      science
-      google_maps_platform
-    Google Workspace Automation
-      gdocs
-      gsheets
-      gslides
-      gdrive
-      gcalendar
 ```
 
-1. **`superpowers`**: Autonomous software engineering suite (TDD, systematic debugging, subagent-driven development, git worktrees).
-2. **`stitch-build`**: Google Stitch design-to-code engine (React, Vite, TanStack Query, shadcn/ui).
-3. **`stitch-design`**: Stitch screen generation, theme token extraction, and design variant generator.
-4. **`stitch-utilities`**: Design system constitution generator (`DESIGN.md`, `SITE.md`, prompt enhancers).
-5. **`chrome-devtools-plugin`**: Live headless browser DevTools (accessibility audits, network inspection, memory profiling).
-6. **`cloudflare`**: Cloudflare Workers, Wrangler, Durable Objects, Turnstile, and Agents SDK.
-7. **`vercel-plugin`**: Vercel AI SDK, Edge Middleware, serverless functions, durable workflows, and CI/CD pipelines.
-8. **`flutter`**: Full Dart/Flutter cross-platform suite (widget previews, integration tests, responsive layouts).
-9. **`android-cli-plugin`**: Native Android SDK CLI integration, device management, and Jetpack Compose previews.
-10. **`firebase`**: Firestore, Cloud Functions v2, App Hosting, and security rules authoring.
-11. **`gemini-api`**: Multimodal Gemini 3.8 / Gemini Live API SDK, audio/video generation, and real-time streaming.
-12. **`google-cloud-developer`**: Google Cloud Platform `gcloud` CLI, Application Default Credentials (ADC), and IAM.
-13. **`google-developer-knowledge`**: Official Google Developer documentation, API references, and migration guides.
-14. **`google-antigravity-sdk`**: Programmatic agent leasing, subagent IPC, and multi-agent swarm orchestration.
-15. **`google_maps_platform`**: Google Maps APIs, geocoding, places, routes, and elevation services.
-16. **`data-agent-kit-plugin`**: BigQuery DataFrames (BigFrames), automated data cleaning pipelines, and dbt models.
-17. **`science`**: Advanced cheminformatics, PyMOL, AlphaFold protein structures, RDKit, and literature search (arXiv/bioRxiv).
-18. **`modern-web-guidance-plugin`**: Modern web standards, service workers, Web Workers, and WebAssembly.
-19. **`gcalendar`**: Google Calendar scheduling, event management, and availability automation.
-20. **`gdocs`**: Google Docs structured authoring, collaborative editing, and document export.
-21. **`gdrive`**: Google Drive file search, folder organization, and asset permissions.
-22. **`gsheets`**: Google Sheets formula computation, cell updates, and spreadsheet manipulation.
-23. **`gslides`**: Google Slides automated deck generation, slide formatting, and visual layout.
+1. **`superpowers`**: The complete autonomous software engineering system (15 sub-skills: strict TDD, systematic 4-phase debugging, subagent-driven development swarms, git worktree isolation, objective code review).
+2. **`stitch-build`**: Google Stitch design-to-code engine (transforms designs into modular React + Vite + Tailwind + shadcn/ui components).
+3. **`stitch-design`**: Stitch screen generation, theme token extraction, and design variant engine.
+4. **`stitch-utilities`**: Semantic design system constitution generator (`DESIGN.md`, `SITE.md`, prompt enhancers).
+5. **`cloudflare`**: Cloudflare Workers, Wrangler, Durable Objects, Turnstile, and Agents SDK.
+6. **`vercel-plugin`**: Vercel AI SDK, Edge Middleware, serverless functions, durable workflows, and CI/CD pipelines.
 
 ---
 
@@ -459,7 +423,7 @@ python -m playwright install chromium
 
 ### Step 3: Restart Antigravity or Gemini CLI
 Restart **Antigravity** or open a new terminal session with `agy`.
-The system will immediately detect the global operating rules in `GEMINI.md` and register all 21 skills and 23 plugins at **Turn 0**!
+The system will immediately detect the global operating rules in `GEMINI.md` and register all 21 skills and custom plugins at **Turn 0**!
 
 ---
 
@@ -470,34 +434,18 @@ antigravity-config/
 ├── GEMINI.md                                  # Global Antigravity behavioral rules (100% inlined)
 ├── AGENTS.md                                  # Project & repository mirror rules
 ├── README.md                                  # Public documentation and visual architecture guide
-├── config.json                                # Antigravity plugin and user settings (Turbo mode)
-├── mcp_config.json                            # Model Context Protocol server configuration
+├── config.example.json                        # Sanitized template for user settings & plugins
+├── mcp_config.example.json                    # Sanitized template for Model Context Protocol servers
+├── .gitignore                                 # Ignores default preloaded plugins, caches & local configs
 ├── docs/
 │   └── AGENT_ENGINEERING_OPTIMIZATION_GUIDE.md # Production AI Agent Architecture Manual
-├── plugins/                                   # 23 Production Plugins & Extensions
+├── plugins/                                   # Custom & Partner Production Plugins
 │   ├── superpowers/                           # 15 autonomous engineering sub-skills
 │   ├── stitch-build/                          # React + Vite + Tailwind code generator
 │   ├── stitch-design/                         # Screen generation & design variant engine
 │   ├── stitch-utilities/                      # Design system analysis & DESIGN.md generator
-│   ├── chrome-devtools-plugin/                # Live DevTools, a11y, memory & network inspection
 │   ├── cloudflare/                            # Workers, Wrangler, Durable Objects & Turnstile
-│   ├── vercel-plugin/                         # AI SDK, Workflows, Functions, Daemons, CI/CD
-│   ├── flutter/                               # Dart & Flutter cross-platform suite
-│   ├── android-cli-plugin/                    # Android SDK CLI & Compose previews
-│   ├── firebase/                              # Firestore, App Hosting, Cloud Functions
-│   ├── gemini-api/                            # Gemini 3.8 / Live API & multimodal streaming
-│   ├── google-cloud-developer/                # gcloud CLI, ADC auth & IAM patterns
-│   ├── google-developer-knowledge/            # Official Google Developer docs & guides
-│   ├── google-antigravity-sdk/                # Programmatic agent leasing & swarms
-│   ├── google_maps_platform/                  # Maps APIs, geocoding & routing
-│   ├── data-agent-kit-plugin/                 # BigQuery BigFrames & dbt pipelines
-│   ├── science/                               # Cheminformatics, PyMOL, AlphaFold, RDKit
-│   ├── modern-web-guidance-plugin/            # Web standards, WebAssembly & Workers
-│   ├── gcalendar/                             # Google Calendar automation
-│   ├── gdocs/                                 # Google Docs automation
-│   ├── gdrive/                                # Google Drive management
-│   ├── gsheets/                               # Google Sheets automation
-│   └── gslides/                               # Google Slides automation
+│   └── vercel-plugin/                         # AI SDK, Workflows, Functions, Daemons, CI/CD
 └── skills/                                    # 21 Precision Engines (12 Master + 9 Specialized)
     ├── master-frontend-ux/                    # UI/UX engineering, 50+ themes, sloplint
     ├── clean-code-craft/                      # Karpathy clean code minimalism & refactoring
@@ -514,6 +462,13 @@ antigravity-config/
     ├── algorithmic-art/                       # Generative art with p5.js & shaders
     ├── canvas-design/                         # Visual composition & layout in PDF/PNG
     ├── brand-guidelines/                      # Brand design systems & typography
+    ├── doc-coauthoring/                       # Collaborative structured documentation
+    ├── internal-comms/                        # Executive updates & incident reports
+    ├── slack-gif-creator/                     # Optimized animated GIFs for messaging
+    ├── academy-guide/                         # Educational syllabus & tutorial design
+    ├── discernment-nudge/                     # Cognitive calibration & bias prevention
+    └── claude-api/                            # Claude API SDK patterns & tool schemas
+```
     ├── doc-coauthoring/                       # Collaborative structured documentation
     ├── internal-comms/                        # Executive updates & incident reports
     ├── slack-gif-creator/                     # Optimized animated GIFs for messaging
