@@ -4,7 +4,8 @@
 [![Shell](https://img.shields.io/badge/Shell-100%25%20Windows%20PowerShell%20Native-0078D6.svg?style=flat-square&logo=windows-terminal)](https://microsoft.com/powershell)
 [![Architecture](https://img.shields.io/badge/Architecture-IAOS%20v2.4%20Production-68217A.svg?style=flat-square)](#-system-architecture)
 [![Superpowers](https://img.shields.io/badge/Superpowers-15%20Autonomous%20Sub--Skills-FF6B6B.svg?style=flat-square)](#-superpowers-suite-15-autonomous-sub-skills)
-[![Master Skills](https://img.shields.io/badge/Master%20Skills-12%20Orthogonal%20Engines-00C853.svg?style=flat-square)](#-the-12-orthogonal-master-skills)
+[![Master Skills](https://img.shields.io/badge/Master%20Skills-15%20Orthogonal%20Engines-00C853.svg?style=flat-square)](#-the-15-orthogonal-master-skills)
+[![Antigravity Native](https://img.shields.io/badge/Antigravity%20Native-.agents%20Rules%20%26%20Skills-4285F4.svg?style=flat-square)](#-system-architecture)
 [![Custom Plugins](https://img.shields.io/badge/Custom%20Plugins-6%20Advanced%20Suites-00B0FF.svg?style=flat-square)](#-custom-plugins-ecosystem-6-advanced-suites)
 [![Verification](https://img.shields.io/badge/Guardrails-6--Step%20Verification%20Ladder-7C4DFF.svg?style=flat-square)](#-the-6-step-verification-ladder)
 [![License](https://img.shields.io/badge/License-MIT-FBC02D.svg?style=flat-square)](LICENSE)
@@ -27,13 +28,14 @@
    - [Case 3: Bug Troubleshooting & Root-Cause Analysis](#case-3-bug-troubleshooting--root-cause-analysis)
    - [Case 4: Multi-Step Task Execution & Token Economy](#case-4-multi-step-task-execution--token-economy)
 4. [⚡ Superpowers Suite (15 Autonomous Sub-Skills)](#-superpowers-suite-15-autonomous-sub-skills)
-5. [🛠️ The 12 Orthogonal Master Skills](#-the-12-orthogonal-master-skills)
-6. [📦 Custom Plugins Ecosystem (6 Advanced Suites)](#-custom-plugins-ecosystem-6-advanced-suites)
-7. [🛡️ The 6-Step Verification Ladder](#-the-6-step-verification-ladder)
-8. [⚡ Quick Start & Installation](#-quick-start--installation)
-9. [📁 Complete Repository Structure](#-complete-repository-structure)
-10. [💻 Environment & Requirements](#-environment--requirements)
-11. [🤝 Contributing & License](#-contributing--license)
+5. [🛠️ The 15 Orthogonal Master Skills](#-the-15-orthogonal-master-skills)
+6. [📜 Antigravity Native Rules Architecture (`.agents/rules/`)](#-antigravity-native-rules-architecture-agentsrules)
+7. [📦 Custom Plugins Ecosystem (6 Advanced Suites)](#-custom-plugins-ecosystem-6-advanced-suites)
+8. [🛡️ The 6-Step Verification Ladder](#-the-6-step-verification-ladder)
+9. [⚡ Quick Start & Installation](#-quick-start--installation)
+10. [📁 Complete Repository Structure](#-complete-repository-structure)
+11. [💻 Environment & Requirements](#-environment--requirements)
+12. [🤝 Contributing & License](#-contributing--license)
 
 ---
 
@@ -304,7 +306,7 @@ flowchart TD
 
 ---
 
-## 🛠️ The 12 Orthogonal Master Skills
+## 🛠️ The 15 Orthogonal Master Skills
 
 Zero overlap. Zero sibling hijacking. Every major software engineering domain is governed by a dedicated master engine:
 
@@ -322,6 +324,32 @@ Zero overlap. Zero sibling hijacking. Every major software engineering domain is
 | **10** | [`agent-skills-builder`](skills/agent-skills-builder/SKILL.md) | End-to-end AI agent skill lifecycle engine: scraping, packaging, validating, testing, repairing agent skills. | Authoring new skills, benchmarking skills, validating manifests, optimizing YAML descriptions. | `package_skill.py`<br>`quick_validate.py`<br>`improve_description.py` |
 | **11** | [`mcp-builder`](skills/mcp-builder/SKILL.md) | Model Context Protocol server development in Python (FastMCP) and TypeScript (MCP SDK), tool schemas, connections. | Building MCP servers, exposing tools to LLMs, configuring stdio/HTTP transports. | `connections.py`<br>`evaluation.py` |
 | **12** | [`managing-python-dependencies`](skills/managing-python-dependencies/SKILL.md) | Virtual environment isolation (`venv`, `uv`), deterministic lockfiles, package conflict resolution. | Setting up Python projects, managing dependencies, fixing pip conflicts, virtual environment management. | uv / venv workflows |
+| **13** | [`docker-orchestration`](skills/docker-orchestration/SKILL.md) | Multi-stage Docker builds, compose patterns, container hardening, non-root users, build cache optimization. | Writing/fixing Dockerfiles, docker-compose setups, container security audits, layer caching. | Reference guides |
+| **14** | [`database-design`](skills/database-design/SKILL.md) | PostgreSQL & relational schema design, 3NF normalization, B-Tree/GIN indexing, zero-downtime DDL migrations, Supabase RLS. | Designing schemas, index tuning, writing SQL migrations, EXPLAIN analysis, Supabase RLS policies. | Reference guides |
+| **15** | [`api-design`](skills/api-design/SKILL.md) | RESTful API standards, OpenAPI 3.1 specification, RFC 7807 Problem Details error schemas, idempotency keys, cursor pagination. | Designing REST APIs, OpenAPI/Swagger schemas, error response contracts, pagination/filtering. | Reference guides |
+
+---
+
+## 📜 Antigravity Native Rules Architecture (`.agents/rules/`)
+
+To solve rule token budget constraints without compromising guardrails, IAOS implements native Antigravity frontmatter triggers across modular rule files:
+
+```mermaid
+flowchart LR
+    Turn0["Prompt Received (Turn 0)"] --> RuleEngine["Antigravity Native Rules Engine"]
+    RuleEngine --> AlwaysOn["windows-powershell.md<br/><code>trigger: always_on</code><br/>(Deterministic PowerShell execution)"]
+    RuleEngine --> Dec1{"trigger: model_decision"}
+    Dec1 -->|"Code modification"| R_Clean["clean-code-discipline.md<br/>(Karpathy clean-code minimalism)"]
+    Dec1 -->|"Verification / testing"| R_Verify["verification-ladder.md<br/>(6-Step Verification Ladder)"]
+    Dec1 -->|"Frontend / UI task"| R_Slop["anti-slop-ui.md<br/>(Anti-slop UI/UX standards)"]
+```
+
+| Rule File | Antigravity Trigger | Activation Condition & Core Purpose |
+| :--- | :--- | :--- |
+| [`.agents/rules/windows-powershell.md`](.agents/rules/windows-powershell.md) | `always_on` | Prohibits POSIX bashisms (`grep`, `cat`, `sed`, `rm -rf`, `export`). Enforces Windows PowerShell native cmdlets, UTF-8 stdio, and proper path escaping. |
+| [`.agents/rules/verification-ladder.md`](.agents/rules/verification-ladder.md) | `model_decision` | Activated during verification and task completion. Mandates Level 1–6 climbing with empirical terminal exit codes before claiming success. |
+| [`.agents/rules/clean-code-discipline.md`](.agents/rules/clean-code-discipline.md) | `model_decision` | Activated during coding, refactoring, and bug fixes. Enforces Andrej Karpathy's clean code rules: surgical diffs, no speculative abstractions, comment preservation. |
+| [`.agents/rules/anti-slop-ui.md`](.agents/rules/anti-slop-ui.md) | `model_decision` | Activated during frontend, HTML, CSS, React, and Tailwind tasks. Forbids generic AI templates, dummy data, and enforces accessible color contrast. |
 
 ---
 
@@ -403,7 +431,7 @@ python -m playwright install chromium
 
 ### Step 3: Restart Antigravity or Gemini CLI
 Restart **Antigravity** or open a new terminal session with `agy`.
-The system will immediately detect the global operating rules in `GEMINI.md` and register all 12 master skills and 6 custom plugins at **Turn 0**!
+The system will immediately detect the global operating rules in `GEMINI.md`, load the native `.agents/rules/` triggers, and register all 15 master skills and 6 custom plugins at **Turn 0**!
 
 ---
 
@@ -411,6 +439,13 @@ The system will immediately detect the global operating rules in `GEMINI.md` and
 
 ```
 antigravity-config/
+├── .agents/                                   # Antigravity Native Workspace Directives
+│   ├── rules/                                 # Antigravity Native Rules with Triggers
+│   │   ├── windows-powershell.md              # trigger: always_on (PowerShell enforcement)
+│   │   ├── verification-ladder.md             # trigger: model_decision (6-step verification)
+│   │   ├── clean-code-discipline.md           # trigger: model_decision (Karpathy minimalism)
+│   │   └── anti-slop-ui.md                    # trigger: model_decision (anti-slop UX standards)
+│   └── skills/                                # Antigravity Native Workspace Skills (15 Engines)
 ├── GEMINI.md                                  # Global Antigravity behavioral rules (100% inlined)
 ├── AGENTS.md                                  # Project & repository mirror rules
 ├── README.md                                  # Public documentation and visual architecture guide
@@ -426,7 +461,7 @@ antigravity-config/
 │   ├── stitch-utilities/                      # Design system analysis & DESIGN.md generator
 │   ├── cloudflare/                            # Workers, Wrangler, Durable Objects & Turnstile
 │   └── vercel-plugin/                         # AI SDK, Workflows, Functions, Daemons, CI/CD
-└── skills/                                    # 12 Orthogonal Master Engines
+└── skills/                                    # 15 Orthogonal Master Engines
     ├── master-frontend-ux/                    # UI/UX engineering, 50+ themes, sloplint
     ├── clean-code-craft/                      # Karpathy clean code minimalism & refactoring
     ├── document-master/                       # Word, Excel, PowerPoint, and PDF engine
@@ -438,7 +473,10 @@ antigravity-config/
     ├── graphify/                              # Codebase AST knowledge graph generator
     ├── agent-skills-builder/                  # Skill lifecycle, scraping, and benchmarking
     ├── mcp-builder/                           # FastMCP & TypeScript MCP server development
-    └── managing-python-dependencies/          # Virtual environment management (uv, venv)
+    ├── managing-python-dependencies/          # Virtual environment management (uv, venv)
+    ├── docker-orchestration/                  # Multi-stage builds, compose, non-root security
+    ├── database-design/                       # 3NF normalization, indexing, zero-downtime DDL
+    └── api-design/                            # REST standards, OpenAPI 3.1, RFC 7807 errors
 ```
 
 ---
