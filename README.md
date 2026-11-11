@@ -5,8 +5,7 @@
 [![Architecture](https://img.shields.io/badge/Architecture-IAOS%20v2.4%20Production-68217A.svg?style=flat-square)](#-system-architecture)
 [![Superpowers](https://img.shields.io/badge/Superpowers-15%20Autonomous%20Sub--Skills-FF6B6B.svg?style=flat-square)](#-superpowers-suite-15-autonomous-sub-skills)
 [![Master Skills](https://img.shields.io/badge/Master%20Skills-12%20Orthogonal%20Engines-00C853.svg?style=flat-square)](#-the-12-orthogonal-master-skills)
-[![Specialized Skills](https://img.shields.io/badge/Specialized%20Skills-9%20Creative%20%26%20Strategy-FF9100.svg?style=flat-square)](#-specialized-skills-9-creative--strategy-engines)
-[![Custom Plugins](https://img.shields.io/badge/Custom%20Plugins-6%20Advanced%20Suites-00B0FF.svg?style=flat-square)](#-custom-plugins-ecosystem)
+[![Custom Plugins](https://img.shields.io/badge/Custom%20Plugins-6%20Advanced%20Suites-00B0FF.svg?style=flat-square)](#-custom-plugins-ecosystem-6-advanced-suites)
 [![Verification](https://img.shields.io/badge/Guardrails-6--Step%20Verification%20Ladder-7C4DFF.svg?style=flat-square)](#-the-6-step-verification-ladder)
 [![License](https://img.shields.io/badge/License-MIT-FBC02D.svg?style=flat-square)](LICENSE)
 
@@ -29,13 +28,12 @@
    - [Case 4: Multi-Step Task Execution & Token Economy](#case-4-multi-step-task-execution--token-economy)
 4. [⚡ Superpowers Suite (15 Autonomous Sub-Skills)](#-superpowers-suite-15-autonomous-sub-skills)
 5. [🛠️ The 12 Orthogonal Master Skills](#-the-12-orthogonal-master-skills)
-6. [🎨 Specialized Skills (9 Creative & Strategy Engines)](#-specialized-skills-9-creative--strategy-engines)
-7. [📦 Custom Plugins Ecosystem (6 Advanced Suites)](#-custom-plugins-ecosystem-6-advanced-suites)
-8. [🛡️ The 6-Step Verification Ladder](#-the-6-step-verification-ladder)
-9. [⚡ Quick Start & Installation](#-quick-start--installation)
-10. [📁 Complete Repository Structure](#-complete-repository-structure)
-11. [💻 Environment & Requirements](#-environment--requirements)
-12. [🤝 Contributing & License](#-contributing--license)
+6. [📦 Custom Plugins Ecosystem (6 Advanced Suites)](#-custom-plugins-ecosystem-6-advanced-suites)
+7. [🛡️ The 6-Step Verification Ladder](#-the-6-step-verification-ladder)
+8. [⚡ Quick Start & Installation](#-quick-start--installation)
+9. [📁 Complete Repository Structure](#-complete-repository-structure)
+10. [💻 Environment & Requirements](#-environment--requirements)
+11. [🤝 Contributing & License](#-contributing--license)
 
 ---
 
@@ -327,24 +325,6 @@ Zero overlap. Zero sibling hijacking. Every major software engineering domain is
 
 ---
 
-## 🎨 Specialized Skills (9 Creative & Strategy Engines)
-
-In addition to the 12 core master skills, IAOS includes 9 specialized creative, brand, and communication skills:
-
-| Skill | Primary Domain & Capability | When It Activates |
-| :--- | :--- | :--- |
-| **`algorithmic-art`** | Generative art with p5.js, mathematical shaders, particle systems, flow fields, and seeded randomness. | User asks for algorithmic art, code-generated visual canvas, generative math patterns. |
-| **`canvas-design`** | Visual composition, posters, and print-ready digital media in PDF and PNG. | Creating posters, graphic visual layouts, aesthetic marketing materials. |
-| **`brand-guidelines`** | High-fidelity brand design systems, color harmonies, logo rules, and typographic identity. | Applying brand guidelines, design language systems, or styling corporate artifacts. |
-| **`doc-coauthoring`** | Structured collaborative document writing, RFC authoring, and iterative knowledge transfer. | Authoring technical proposals, RFCs, architecture decision records (ADRs), user manuals. |
-| **`internal-comms`** | Executive updates, quarterly retrospectives, incident reports, company newsletters, and FAQs. | Drafting stakeholder updates, team memos, post-mortems, leadership memos. |
-| **`slack-gif-creator`** | Frame-by-frame animated GIF generation optimized for Slack and Discord messaging bandwidth. | User requests custom animated GIFs, celebration graphics, or emoji animations. |
-| **`academy-guide`** | Pedagogical syllabus design, interactive educational tutorials, and progressive curriculum engineering. | Building tutorials, step-by-step developer learning modules, or technical workshops. |
-| **`discernment-nudge`** | Cognitive bias mitigation, objective decision-making models, and deliberate self-critique. | Evaluating conflicting architectural trade-offs, sanity-checking complex decisions. |
-| **`claude-api`** | Anthropic Claude API SDK integration patterns, tool use schemas, and prompt design. | Implementing Claude API integrations, multi-provider fallbacks, or token estimators. |
-
----
-
 ## 📦 Custom Plugins Ecosystem (6 Advanced Suites)
 
 > **Note on Default Preloaded Plugins:** Antigravity already ships with or preloads official marketplace plugins out-of-the-box (e.g. `gdocs`, `gcalendar`, `gdrive`, `gsheets`, `gslides`, `gemini-api`, `google-cloud-developer`, `google-developer-knowledge`, `google_maps_platform`, `google-antigravity-sdk`, `firebase`, `flutter`, `android-cli-plugin`, `chrome-devtools-plugin`, `science`, `data-agent-kit-plugin`, `modern-web-guidance-plugin`). To maintain a clean, lightweight repository, prevent merge conflicts, and avoid overriding user-specific environments, **those default preloaded plugins are managed natively by Antigravity and omitted from git tracking**.
@@ -423,7 +403,7 @@ python -m playwright install chromium
 
 ### Step 3: Restart Antigravity or Gemini CLI
 Restart **Antigravity** or open a new terminal session with `agy`.
-The system will immediately detect the global operating rules in `GEMINI.md` and register all 21 skills and custom plugins at **Turn 0**!
+The system will immediately detect the global operating rules in `GEMINI.md` and register all 12 master skills and 6 custom plugins at **Turn 0**!
 
 ---
 
@@ -446,7 +426,7 @@ antigravity-config/
 │   ├── stitch-utilities/                      # Design system analysis & DESIGN.md generator
 │   ├── cloudflare/                            # Workers, Wrangler, Durable Objects & Turnstile
 │   └── vercel-plugin/                         # AI SDK, Workflows, Functions, Daemons, CI/CD
-└── skills/                                    # 21 Precision Engines (12 Master + 9 Specialized)
+└── skills/                                    # 12 Orthogonal Master Engines
     ├── master-frontend-ux/                    # UI/UX engineering, 50+ themes, sloplint
     ├── clean-code-craft/                      # Karpathy clean code minimalism & refactoring
     ├── document-master/                       # Word, Excel, PowerPoint, and PDF engine
@@ -458,23 +438,7 @@ antigravity-config/
     ├── graphify/                              # Codebase AST knowledge graph generator
     ├── agent-skills-builder/                  # Skill lifecycle, scraping, and benchmarking
     ├── mcp-builder/                           # FastMCP & TypeScript MCP server development
-    ├── managing-python-dependencies/          # Virtual environment management (uv, venv)
-    ├── algorithmic-art/                       # Generative art with p5.js & shaders
-    ├── canvas-design/                         # Visual composition & layout in PDF/PNG
-    ├── brand-guidelines/                      # Brand design systems & typography
-    ├── doc-coauthoring/                       # Collaborative structured documentation
-    ├── internal-comms/                        # Executive updates & incident reports
-    ├── slack-gif-creator/                     # Optimized animated GIFs for messaging
-    ├── academy-guide/                         # Educational syllabus & tutorial design
-    ├── discernment-nudge/                     # Cognitive calibration & bias prevention
-    └── claude-api/                            # Claude API SDK patterns & tool schemas
-```
-    ├── doc-coauthoring/                       # Collaborative structured documentation
-    ├── internal-comms/                        # Executive updates & incident reports
-    ├── slack-gif-creator/                     # Optimized animated GIFs for messaging
-    ├── academy-guide/                         # Educational syllabus & tutorial design
-    ├── discernment-nudge/                     # Cognitive calibration & bias prevention
-    └── claude-api/                            # Claude API SDK patterns & tool schemas
+    └── managing-python-dependencies/          # Virtual environment management (uv, venv)
 ```
 
 ---
