@@ -39,28 +39,28 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gcalendar",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.7"
+        "version": "0.0.8"
       }
     },
     "gdocs": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gdocs",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.8"
+        "version": "0.0.9"
       }
     },
     "gdrive": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gdrive",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.8"
+        "version": "0.0.11"
       }
     },
     "gemini-api": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gemini-api",
         "marketplace": "antigravity-plugins-official",
-        "version": "2.3.1"
+        "version": "2.4.0"
       }
     },
     "google-antigravity-sdk": {
@@ -74,14 +74,14 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/google-cloud-developer",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.1.16"
+        "version": "1.1.17"
       }
     },
     "google-developer-knowledge": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/google-developer-knowledge",
         "marketplace": "antigravity-plugins-official",
-        "version": "1.0.2"
+        "version": "1.0.3"
       }
     },
     "google_maps_platform": {
@@ -95,14 +95,14 @@
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gsheets",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.7"
+        "version": "0.0.8"
       }
     },
     "gslides": {
       "installedFrom": {
         "id": "antigravity-plugins-official/plugin/gslides",
         "marketplace": "antigravity-plugins-official",
-        "version": "0.0.7"
+        "version": "0.0.8"
       }
     },
     "modern-web-guidance-plugin": {

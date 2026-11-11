@@ -1,7 +1,7 @@
 {
   "name": "google-developer-knowledge",
   "displayName": "Google Developer Knowledge",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Search and retrieve official documentation across Google Cloud, Gemini, Android, Firebase, Flutter, and Web. Requires Google Cloud credentials (ADC) or an API key.",
   "author": {
     "name": "Google LLC",
