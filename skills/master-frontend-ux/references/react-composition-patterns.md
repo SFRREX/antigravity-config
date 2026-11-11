@@ -51,3 +51,4 @@ export function Card({ children, headerAction }: CardProps) {
   1. Expensive calculations (filtering/sorting 1,000+ items).
   2. Callbacks passed to memoized children (`React.memo`).
   3. Stable object references passed into `useEffect` dependency arrays.
+

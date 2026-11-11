@@ -25,3 +25,4 @@ SELECT * FROM orders WHERE tenant_id = '123' AND created_at > NOW() - INTERVAL '
    - `shared read`: Page had to be fetched from physical disk.
 3. **Rows Removed by Filter**: High number of removed rows indicates the index is not selective enough.
 4. **Sort Method: external merge Disk**: Sort spilled to disk. Increase `work_mem` or create an index that provides pre-sorted order (`CREATE INDEX ... ON orders (created_at DESC)`).
+

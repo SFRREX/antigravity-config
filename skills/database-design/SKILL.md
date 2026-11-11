@@ -66,3 +66,4 @@ CREATE INDEX idx_organizations_metadata_gin
 - [PostgreSQL Indexing & EXPLAIN ANALYZE Guide](./references/indexing-and-explain.md)
 - [Zero-Downtime SQL Migrations & DDL Patterns](./references/migrations-and-ddl.md)
 - [Supabase & Modern PostgreSQL Development Patterns](./references/supabase-and-postgres-patterns.md)
+

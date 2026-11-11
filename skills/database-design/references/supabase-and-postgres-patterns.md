@@ -30,3 +30,4 @@ ON CONFLICT (user_id) DO UPDATE SET
     login_count = user_stats.login_count + 1,
     last_login = EXCLUDED.last_login;
 ```
+

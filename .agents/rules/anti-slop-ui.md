@@ -26,3 +26,4 @@ When generating or editing user interfaces, web applications, landing pages, or 
 - All interactive elements must have visible focus rings (`focus-visible:ring-2`).
 - Icon-only buttons must have an `aria-label`.
 - Form inputs must have associated labels and descriptive validation messages.
+

@@ -1,505 +1,310 @@
-# 🚀 Antigravity Intelligent Agent Operating System (IAOS)
+# 🚀 Antigravity IAOS: The Senior Engineering Engine
 
 [![Platform](https://img.shields.io/badge/Platform-Google%20Antigravity%20%7C%20Gemini%20CLI-4285F4.svg?style=flat-square&logo=google)](https://antigravity.google)
 [![Shell](https://img.shields.io/badge/Shell-100%25%20Windows%20PowerShell%20Native-0078D6.svg?style=flat-square&logo=windows-terminal)](https://microsoft.com/powershell)
-[![Architecture](https://img.shields.io/badge/Architecture-IAOS%20v2.4%20Production-68217A.svg?style=flat-square)](#-system-architecture)
-[![Superpowers](https://img.shields.io/badge/Superpowers-15%20Autonomous%20Sub--Skills-FF6B6B.svg?style=flat-square)](#-superpowers-suite-15-autonomous-sub-skills)
-[![Master Skills](https://img.shields.io/badge/Master%20Skills-15%20Orthogonal%20Engines-00C853.svg?style=flat-square)](#-the-15-orthogonal-master-skills)
-[![Antigravity Native](https://img.shields.io/badge/Antigravity%20Native-.agents%20Rules%20%26%20Skills-4285F4.svg?style=flat-square)](#-system-architecture)
-[![Custom Plugins](https://img.shields.io/badge/Custom%20Plugins-6%20Advanced%20Suites-00B0FF.svg?style=flat-square)](#-custom-plugins-ecosystem-6-advanced-suites)
+[![Antigravity Native](https://img.shields.io/badge/Antigravity%20Native-.agents%20Rules%20%26%20Skills-4285F4.svg?style=flat-square)](#-how-it-works-in-30-seconds)
+[![Master Skills](https://img.shields.io/badge/Master%20Skills-15%20Specialized%20Engines-00C853.svg?style=flat-square)](#-the-15-master-skills)
+[![Superpowers](https://img.shields.io/badge/Superpowers-15%20Autonomous%20Sub--Skills-FF6B6B.svg?style=flat-square)](#-the-superpowers-engine)
 [![Verification](https://img.shields.io/badge/Guardrails-6--Step%20Verification%20Ladder-7C4DFF.svg?style=flat-square)](#-the-6-step-verification-ladder)
 [![License](https://img.shields.io/badge/License-MIT-FBC02D.svg?style=flat-square)](LICENSE)
 
----
-
-> **Production-grade developer configuration, behavioral guardrails, autonomous superpowers, and master skills architecture for Google Antigravity and the Gemini CLI.**
->
-> Built from the ground up for high-agency software engineering, autonomous debugging, clean-code refactoring, full-stack web and mobile development, document automation, and empirical verification with **zero context drift**, **zero hallucinated completions**, and **up to 70% token savings**.
+> **Turn your Google Antigravity AI into a disciplined, senior software engineer.**  
+> Stop hallucinated test passes, stop generic ugly UIs, stop broken terminal commands, and save up to **70% of your context tokens**.
 
 ---
 
-## 📑 Table of Contents
+## 💡 Have You Experienced This With AI Agents?
 
-1. [System Architecture](#-system-architecture)
-2. [Why IAOS? Comparison Matrix](#-why-iaos-comparison-matrix)
-3. [Visual Before & After Case Studies](#-visual-before--after-case-studies)
-   - [Case 1: UI/UX Engineering & Landing Pages](#case-1-uiux-engineering--landing-pages)
-   - [Case 2: Code Refactoring & Logic Craft](#case-2-code-refactoring--logic-craft)
-   - [Case 3: Bug Troubleshooting & Root-Cause Analysis](#case-3-bug-troubleshooting--root-cause-analysis)
-   - [Case 4: Multi-Step Task Execution & Token Economy](#case-4-multi-step-task-execution--token-economy)
-4. [⚡ Superpowers Suite (15 Autonomous Sub-Skills)](#-superpowers-suite-15-autonomous-sub-skills)
-5. [🛠️ The 15 Orthogonal Master Skills](#-the-15-orthogonal-master-skills)
-6. [📜 Antigravity Native Rules Architecture (`.agents/rules/`)](#-antigravity-native-rules-architecture-agentsrules)
-7. [📦 Custom Plugins Ecosystem (6 Advanced Suites)](#-custom-plugins-ecosystem-6-advanced-suites)
-8. [🛡️ The 6-Step Verification Ladder](#-the-6-step-verification-ladder)
-9. [⚡ Quick Start & Installation](#-quick-start--installation)
-10. [📁 Complete Repository Structure](#-complete-repository-structure)
-11. [💻 Environment & Requirements](#-environment--requirements)
-12. [🤝 Contributing & License](#-contributing--license)
+Every developer using AI assistants has felt these four frustrations:
+
+```
+❌ "I ran all 50 tests and they all passed!"  ---> (You check the terminal: it didn't run anything)
+❌ "Here is your modern dashboard!"            ---> (Centered purple button, white screen, broken on mobile)
+❌ "Let me fix that 2-line bug..."             ---> (Rewrites 600 lines, deletes all your comments, adds 4 new bugs)
+❌ "Running bash command..."                   ---> (Crashes on Windows because it ran 'grep' and 'cat')
+```
+
+**Antigravity IAOS fixes this completely.**  
+It installs clear rules, specialized engineering skills, and a strict verification ladder so your AI works with evidence, discipline, and production quality.
 
 ---
 
-## 🏛️ System Architecture
+## 🧠 How It Works in 30 Seconds
 
-IAOS intercepts every developer prompt, passing it through a deterministic multi-stage evaluation pipeline before any tool execution occurs.
+When you send a prompt, Antigravity doesn't guess or jump blindly into writing code. It routes your request through an intelligent, step-by-step pipeline:
 
 ```mermaid
 flowchart TD
-    UserPrompt["Developer Prompt / Issue / Feature Request"] --> PreFlight["1. Pre-Flight Analysis<br/>(Objective • Deliverables • Constraints • Blast Radius)"]
+    User["👤 Your Prompt / Task"] --> Router{"🧠 1. Smart Route"}
     
-    PreFlight --> ReasonRouter{"2. Adaptive Reasoning Router"}
-    ReasonRouter -->|"Routine / Simple"| FastMode["FAST Mode<br/>(Direct inspection, single edits)"]
-    ReasonRouter -->|"Feature / Refactor"| BalancedMode["BALANCED Mode<br/>(Structured TDD, test-backed diffs)"]
-    ReasonRouter -->|"Deep Bug / Arch"| DeepMode["DEEP Mode<br/>(AST graphs, root-cause tracing)"]
+    Router --> Rules["📜 2. Load Active Rules<br/><i>(PowerShell safety • Clean code rules • Anti-slop UI)</i>"]
+    
+    Rules --> Selector{"🎯 3. Pick Best Skills"}
+    Selector --> Master["15 Master Skills<br/><i>(Frontend, DB, Docker, APIs, etc.)</i>"]
+    Selector --> Super["Superpowers Engine<br/><i>(TDD, Root-cause debugging, Subagents)</i>"]
+    
+    Master --> Sandbox["💻 4. Run Native PowerShell Commands<br/><i>(Safe bounded reads • Filtered output • Fast)</i>"]
+    Super --> Sandbox
+    
+    Sandbox --> Ladder{"🛡️ 5. Climb Verification Ladder"}
+    Ladder -->|"Level 1-3"| Tests["Syntax Check ➔ File Verification ➔ Real Tests Pass"]
+    Tests -->|"Level 4-5"| Live["Live Server Verification ➔ Spec Review"]
+    Live --> Output["✅ 6. Verified, Working Solution Delivered"]
 
-    FastMode --> SkillRouter["3. Autonomous Skill & Plugin Dispatcher"]
-    BalancedMode --> SkillRouter
-    DeepMode --> SkillRouter
-
-    SkillRouter --> Superpowers["Superpowers Engine<br/>• TDD Red-Green-Refactor<br/>• Systematic Debugging<br/>• Subagent Swarm (SDD)<br/>• Git Worktree Isolation"]
-    SkillRouter --> MasterSkills["12 Master Skills<br/>• master-frontend-ux<br/>• clean-code-craft<br/>• document-master<br/>• git-workflow • ..."]
-    SkillRouter --> PluginsSuite["23 Production Plugins<br/>• Flutter • Firebase • Cloudflare<br/>• Chrome DevTools • Stitch • Vercel"]
-
-    Superpowers --> ExecutionSandbox["4. Windows Native Execution Engine<br/>(Pure PowerShell • Bounded Line Reading • UTF-8 Safety)"]
-    MasterSkills --> ExecutionSandbox
-    PluginsSuite --> ExecutionSandbox
-
-    ExecutionSandbox --> VerificationLadder{"5. 6-Step Verification Ladder"}
-    VerificationLadder -->|"Level 1: Lint & Syntax"| L1["L1: Compiler / Parser Pass"]
-    L1 -->|"Level 2: Deterministic Assertions"| L2["L2: File Exists & Schema Valid"]
-    L2 -->|"Level 3: Unit & Regression Tests"| L3["L3: CLI Exit Code 0"]
-    L3 -->|"Level 4: Live State / Dev Server"| L4["L4: Live Integration Pass"]
-    L4 -->|"Level 5: Independent Review"| L5["L5: Spec Acceptance Check"]
-    L5 -->|"Level 6: Irreversible Action Check"| L6["L6: Explicit User Approval"]
-
-    L6 --> StatePersistence["6. Durable State Persistence<br/>(task_plan.md • progress.md • findings.md)"]
-    StatePersistence --> VerifiedDelivery["Verified Success Deliverable<br/>(Concise summary • Code links • Artifact diffs)"]
-
-    classDef primary fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1;
-    classDef success fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20;
-    classDef warning fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#e65100;
-    class UserPrompt,PreFlight,ReasonRouter,SkillRouter,ExecutionSandbox primary;
-    class VerificationLadder,L1,L2,L3,L4,L5,L6,StatePersistence,VerifiedDelivery success;
-    class Superpowers,MasterSkills,PluginsSuite warning;
+    classDef blue fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1;
+    classDef green fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20;
+    classDef orange fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#e65100;
+    class User,Router,Selector blue;
+    class Sandbox,Ladder,Tests,Live,Output green;
+    class Rules,Master,Super orange;
 ```
 
 ---
 
-## 📊 Why IAOS? Comparison Matrix
+## ⚖️ Visual Side-by-Side Comparison
 
-| Capability / Dimension | ❌ Vanilla Default AI Agent | 🚀 Antigravity with IAOS + Superpowers |
-| :--- | :--- | :--- |
-| **Verification & Truth** | **Fabricated Success**: Asserts "All tests pass!" without running commands. Confuses model confidence with empirical proof. | **Evidence Before Assertions**: Hardened with the **6-Step Verification Ladder**. No claim is permitted without running tests, observing exit code 0, and disk checks. |
-| **Frontend & UI/UX** | **AI Slop**: Generic white background, centered purple gradient button, Inter font, dummy cards titled *"Card 1"*, broken mobile responsiveness. | **Anti-Slop Craft (`master-frontend-ux`)**: Curated 60-30-10 palettes (192 themes), 74 expressive font pairings, micro-interactions, WCAG 4.5:1 accessible contrast, and zero boilerplate. |
-| **Code Modification** | **Bloated Over-Engineering**: Rewrites 600 lines for a 3-line bug, introduces new abstractions, deletes comments, breaks subtle invariants. | **Karpathy Clean Code (`clean-code-craft`)**: Surgical minimal diffs, zero speculative abstractions, comments strictly preserved, zero unnecessary complexity. |
-| **Debugging Methodology** | **Shotgun Guesswork**: Tries random edits repeatedly, generates cyclic errors, hallucinates external fixes, leaves leftover debugging code. | **Superpowers Systematic Debugging**: 4-phase root cause isolation, minimal reproduction, dataflow tracing, and defense-in-depth regression assertions. |
-| **Context & Token Economy** | **Massive Context Blowup**: Reads entire 3,000-line files blindly, dumps megabytes of CLI output into context, crashes after 12 turns. | **Context Engineering**: Bounded line reading (`StartLine`/`EndLine`), PowerShell stdout filtering (`Select-Object -First 30`), **50%–70% token savings**. |
-| **Multi-Step Execution** | **Context Amnesia**: Loses track of requirements after turn 4, wanders off into side-quests, claims completion prematurely. | **Persistent Disk Planning (`planning-with-files`)**: Externalized `task_plan.md`, `progress.md`, and `findings.md`. Resumable across reboots and crashes. |
-| **Multi-Agent Teams** | **Chaos & Conflicts**: Multiple subagents overwrite the same files simultaneously, causing silent clobbering and git merge hell. | **Subagent-Driven Development (SDD)**: Isolated subagents with strict contracts, isolated workspaces / git worktrees, and independent code-review subagents. |
-| **Host Environment** | **Broken Linux Bashisms**: Emits `grep`, `cat`, `sed`, `rm -rf`, `export FOO=bar` on Windows, causing immediate PowerShell failures. | **100% Windows PowerShell Native**: Pure PowerShell cmdlets, proper path escaping, UTF-8 stdio safety, and pure-Python cross-platform fallbacks. |
-| **Release & Git Hygiene** | **Lazy Commits**: `git commit -m "update files"`, giant unreviewed blobs, missing pull request context. | **Release Engineering (`git-workflow`)**: Conventional Commits 1.0.0, atomic change scopes, reviewer-friendly PR summaries with diff inspection. |
-| **Tool Orchestration** | **Skill Clashing & Hijacking**: Dozens of duplicate tools compete for the prompt, causing routing confusion and token bloat. | **12 Orthogonal Master Engines**: Zero overlap, zero sibling hijacking, progressive disclosure of documentation on demand. |
-
----
-
-## 🔍 Visual Before & After Case Studies
-
-### Case 1: UI/UX Engineering & Landing Pages
-
-````carousel
-```html
-<!-- ❌ BEFORE IAOS: Typical Generic "AI Slop" Component -->
-<div class="min-h-screen bg-white text-gray-900 flex flex-col items-center justify-center p-8">
-  <!-- Generic Inter font, default Tailwind purple, zero personality, fake content -->
-  <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-    Supercharge Your Workflow With Next-Gen AI
-  </h1>
-  <p class="text-gray-500 mb-8 max-w-md text-center">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
-  </p>
-  <button class="bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-lg shadow-md transition">
-    Get Started Free
-  </button>
-  <div class="grid grid-cols-3 gap-6 mt-12 w-full max-w-4xl">
-    <div class="p-6 border rounded-xl shadow-sm"><h3 class="font-bold">Feature 1</h3><p>Description here</p></div>
-    <div class="p-6 border rounded-xl shadow-sm"><h3 class="font-bold">Feature 2</h3><p>Description here</p></div>
-    <div class="p-6 border rounded-xl shadow-sm"><h3 class="font-bold">Feature 3</h3><p>Description here</p></div>
-  </div>
-</div>
-```
-<!-- slide -->
-```html
-<!-- 🚀 AFTER IAOS: Production Anti-Slop UI (master-frontend-ux + Stitch) -->
-<section class="relative min-h-screen bg-[#0A0D14] text-[#F3F4F6] font-['Plus_Jakarta_Sans'] antialiased selection:bg-[#3B82F6]/30 px-6 py-24 overflow-hidden">
-  <!-- Atmospheric background radial glow & subtle noise grid -->
-  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.12),transparent_70%)]"></div>
-  
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-xs font-mono text-blue-400 mb-8 backdrop-blur-sm">
-      <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-      REAL-TIME DISTRIBUTED AGENT MESH v2.4
-    </div>
-    
-    <h1 class="font-['Syne'] text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] max-w-3xl mb-6">
-      Orchestrate autonomous agent fleets <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-emerald-400">without human friction.</span>
-    </h1>
-    
-    <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
-      Execute resilient multi-agent swarms with bounded JIT memory, sub-second telemetry, and deterministic 6-step verification ladders.
-    </p>
-    
-    <div class="flex flex-wrap items-center gap-4">
-      <a href="#deploy" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-500 active:scale-[0.98] text-white text-sm font-semibold transition-all duration-200 shadow-[0_0_24px_rgba(37,99,235,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0D14]">
-        Deploy Agent Cluster →
-      </a>
-      <a href="#benchmark" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-zinc-800 hover:border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800/80 text-zinc-300 text-sm font-medium transition-all duration-200 backdrop-blur-md">
-        View Verification Benchmarks
-      </a>
-    </div>
-  </div>
-</section>
-```
-````
-
----
-
-### Case 2: Code Refactoring & Logic Craft
-
-````carousel
-```typescript
-// ❌ BEFORE IAOS: Over-Engineered 50-Line Speculative Rewrite
-// The unguided agent reinvented the wheel, created 3 unnecessary interfaces, and altered error behavior
-interface IQueryFilterStrategy<T> {
-  apply(item: T): boolean;
-}
-class RegexMatchFilterStrategy implements IQueryFilterStrategy<UserRecord> {
-  constructor(private pattern: RegExp) {}
-  apply(user: UserRecord): boolean {
-    return this.pattern.test(user.name);
-  }
-}
-export class UserFilterManager {
-  private strategies: IQueryFilterStrategy<UserRecord>[] = [];
-  addStrategy(s: IQueryFilterStrategy<UserRecord>) { this.strategies.push(s); }
-  filter(users: UserRecord[]): UserRecord[] {
-    return users.filter(u => this.strategies.every(s => s.apply(u)));
-  }
-}
-```
-<!-- slide -->
-```typescript
-// 🚀 AFTER IAOS: Karpathy Clean Code (clean-code-craft)
-// Surgical 4-line change. Zero extra classes. Preserves existing call signatures and runtime performance.
-export function filterUsersByQuery(users: UserRecord[], query: string): UserRecord[] {
-  const normalized = query.trim().toLowerCase();
-  if (!normalized) return users;
-  return users.filter(user => user.name.toLowerCase().includes(normalized));
-}
-```
-````
-
----
-
-### Case 3: Bug Troubleshooting & Root-Cause Analysis
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Developer
-    participant Superpowers as Superpowers Systematic Debugger
-    participant Codebase
-    participant TestRunner as Vitest / Pytest Runner
-
-    Developer->>Superpowers: "Cart checkout occasionally drops the coupon code!"
-    Note over Superpowers: PHASE 1: Minimal Reproduction
-    Superpowers->>TestRunner: Run isolated test with mock session expiry
-    TestRunner-->>Superpowers: ❌ Coupon missing on concurrent token refresh!
-    
-    Note over Superpowers: PHASE 2: Root-Cause Dataflow Tracing
-    Superpowers->>Codebase: Trace sessionRefreshInterceptor -> cartStateMapper
-    Note over Codebase: Discovered: cartStateMapper resets uncommitted coupons during token rotation
-    
-    Note over Superpowers: PHASE 3: Surgical Red-Green-Refactor
-    Superpowers->>TestRunner: Add regression test asserting coupon retention during token refresh
-    TestRunner-->>Superpowers: ❌ Test fails as expected (RED)
-    Superpowers->>Codebase: Preserve pendingCoupons in token rotation payload (3 lines)
-    Superpowers->>TestRunner: Re-run test suite
-    TestRunner-->>Superpowers: ✅ All 48 tests pass (GREEN)
-    
-    Note over Superpowers: PHASE 4: Defense-in-Depth Verification
-    Superpowers-->>Developer: Root cause proved, fixed, verified with empirical evidence. Zero speculation.
-```
-
----
-
-### Case 4: Multi-Step Task Execution & Token Economy
+### 1. Verification: Fake Claims vs. Real Proof
 
 ```mermaid
 flowchart LR
-    subgraph VanillaAgent["❌ Vanilla Unbounded Agent"]
+    subgraph Bad["❌ Standard AI Agent"]
         direction TB
-        V1["Turn 1: Read whole 4,000-line file<br/>(32,000 tokens)"] --> V2["Turn 2: Run build, dump raw stacktrace<br/>(18,000 tokens)"]
-        V2 --> V3["Turn 3: Re-read file again<br/>(32,000 tokens)"]
-        V3 --> V4["Turn 4: Context Limit Reached!<br/>💥 Model hallucinates or aborts"]
+        B1["Receives bug fix task"] --> B2["Edits code randomly"]
+        B2 --> B3["Hallucinates: 'Everything is fixed!'"]
+        B3 --> B4["💥 Developer discovers tests are failing"]
     end
 
-    subgraph IAOSAgent["🚀 IAOS Bounded Execution Engine"]
+    subgraph Good["🚀 Antigravity with IAOS"]
         direction TB
-        I1["Turn 1: Bounded line inspection [45-80]<br/>(350 tokens)"] --> I2["Turn 2: Filtered CLI stream | Select-Object -First 15<br/>(220 tokens)"]
-        I2 --> I3["Turn 3: Write state to disk in task_plan.md<br/>(0 context leak)"]
-        I3 --> I4["Turn 4: Complete task under 3,500 total tokens<br/>✅ 89% Context Preservation"]
+        G1["Receives bug fix task"] --> G2["Runs test to reproduce bug (RED)"]
+        G2 --> G3["Applies surgical 3-line fix"]
+        G3 --> G4["Re-runs tests & checks exit code 0 (GREEN)"]
+        G4 --> G5["✅ Delivers verified fix with terminal proof"]
     end
 
-    classDef bad fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c;
-    classDef good fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20;
-    class V1,V2,V3,V4 bad;
-    class I1,I2,I3,I4 good;
+    classDef badBox fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c;
+    classDef goodBox fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20;
+    class B1,B2,B3,B4 badBox;
+    class G1,G2,G3,G4,G5 goodBox;
 ```
 
 ---
 
-## ⚡ Superpowers Suite (15 Autonomous Sub-Skills)
+### 2. Frontend Design: AI Slop vs. Human-Crafted UX
 
-The configuration embeds the complete **Superpowers** production sub-skill system (`plugins/superpowers/`), transforming raw language model interactions into an elite software engineering methodology:
+```
+❌ STANDARD AI GENERATED UI ("AI Slop"):
+┌────────────────────────────────────────────────────────┐
+│                                                        │
+│                  Welcome to Dashboard                  │
+│                                                        │
+│               [ Click Here to Get Started ]             │
+│                      (Purple Button)                   │
+│                                                        │
+│  ┌────────────────┐  ┌────────────────┐  ┌───────────┐ │
+│  │ Card 1         │  │ Card 2         │  │ Card 3    │ │
+│  │ Lorem ipsum... │  │ Lorem ipsum... │  │ Lorem ... │ │
+│  └────────────────┘  └────────────────┘  └───────────┘ │
+└────────────────────────────────────────────────────────┘
+Result: Generic, uninspired, poor contrast, breaks on mobile.
+
+✅ IAOS ANTI-SLOP CRAFT (master-frontend-ux):
+┌────────────────────────────────────────────────────────┐
+│ ⚡ Acme Analytics       [Search...]       🔔  (Profile) │
+├────────────────────────────────────────────────────────┤
+│ Active Revenue          Churn Rate         Server Load │
+│ $142,850 ▲ 12.4%        1.2% ▼ 0.4%        42% (Normal)│
+├────────────────────────────────────────────────────────┤
+│ 📈 Real-Time Ingestion (60-30-10 Curated Theme Palette) │
+│ • Expressive Typography • Visible Focus Rings • WCAG AA│
+│ • Fluid Responsive Layout • Micro-Interactions Built-in │
+└────────────────────────────────────────────────────────┘
+Result: Production-ready design, purposeful hierarchy, authentic data.
+```
+
+---
+
+### 3. Context & Token Savings: How to Avoid Crashes
+
+Standard AI tools dump entire 4,000-line files into memory, filling up the context window in just 3 or 4 prompts. **IAOS uses bounded reading and selective output**, saving **50% to 70% of your tokens**:
+
+```
+Standard Agent:  [████████████████████████████████] 32,000 tokens (Reads entire file blindly)
+IAOS Engine:     [███                             ]  3,200 tokens (Reads only lines 40-90 needed)
+                                                    └─ 90% Context Saved!
+```
+
+---
+
+## 🛠️ The 15 Master Skills
+
+Every major software domain has a dedicated master skill. They don't fight with each other, and they load extra information only when you need it:
+
+| # | Master Skill | What It Does (In Simple Words) | When It Automatically Triggers |
+| :---: | :--- | :--- | :--- |
+| **1** | [`master-frontend-ux`](skills/master-frontend-ux/SKILL.md) | Builds stunning, accessible web interfaces with 50+ themes, 192 palettes, and anti-slop rules. | Creating or modifying React, HTML, CSS, Tailwind, or web components. |
+| **2** | [`clean-code-craft`](skills/clean-code-craft/SKILL.md) | Keeps code simple and clean (inspired by Andrej Karpathy). Makes surgical edits; preserves comments. | Refactoring code, code reviews, cleaning up messy logic, deleting dead code. |
+| **3** | [`docker-orchestration`](skills/docker-orchestration/SKILL.md) | Writes secure, tiny Docker images using multi-stage builds and compose files. Non-root by default. | Creating Dockerfiles, `docker-compose.yml`, caching builds, container security. |
+| **4** | [`database-design`](skills/database-design/SKILL.md) | Designs fast relational databases (PostgreSQL/Supabase) with smart indexes and safe migrations. | Designing tables, writing SQL migrations, fixing slow queries with `EXPLAIN`. |
+| **5** | [`api-design`](skills/api-design/SKILL.md) | Designs professional REST APIs, OpenAPI 3.1 specs, standard error messages, and cursor pagination. | Building API routes, writing Swagger/OpenAPI contracts, standardizing errors. |
+| **6** | [`document-master`](skills/document-master/SKILL.md) | Creates, reads, edits, and converts Word (`.docx`), Excel (`.xlsx`), PowerPoint (`.pptx`), and PDFs. | Working with spreadsheets, documents, presentations, or extracting PDF data. |
+| **7** | [`git-workflow`](skills/git-workflow/SKILL.md) | Writes clean Conventional Commits (e.g. `feat:`, `fix:`) and detailed, reviewer-friendly PR summaries. | Staging changes, committing code, preparing pull requests, release notes. |
+| **8** | [`security-and-hardening`](skills/security-and-hardening/SKILL.md) | Prevents OWASP security vulnerabilities (SQL injection, XSS, token leaks, and unsafe inputs). | Writing authentication, handling sensitive data, uploading files, reviewing code. |
+| **9** | [`performance-optimization`](skills/performance-optimization/SKILL.md) | Speeds up slow apps: eliminates N+1 database queries, reduces bundle sizes, optimizes Core Web Vitals. | Fixing slow pages, high memory usage, laggy queries, slow server responses. |
+| **10** | [`webapp-testing`](skills/webapp-testing/SKILL.md) | Tests web apps in real headless Chrome browsers using Playwright. Takes screenshots and checks console logs. | Running end-to-end tests, verifying buttons and forms in browser, UI test suites. |
+| **11** | [`planning-with-files`](skills/planning-with-files/SKILL.md) | Keeps long tasks organized by writing progress to disk (`task_plan.md`). Prevents AI from getting lost. | Complex tasks requiring 3+ steps or changes across multiple files. |
+| **12** | [`graphify`](skills/graphify/SKILL.md) | Builds an AST knowledge graph of your entire codebase to understand how files connect. | Exploring new projects, analyzing architecture, finding dependencies. |
+| **13** | [`agent-skills-builder`](skills/agent-skills-builder/SKILL.md) | Creates, tests, packages, and benchmarks new skills for Antigravity agents. | Creating custom skills, validating skill formats, benchmarking agent performance. |
+| **14** | [`mcp-builder`](skills/mcp-builder/SKILL.md) | Builds Model Context Protocol (MCP) servers in Python (FastMCP) or TypeScript. | Exposing local tools or external APIs to your AI assistant. |
+| **15** | [`managing-python-dependencies`](skills/managing-python-dependencies/SKILL.md) | Manages Python environments cleanly using `uv` and `venv` with zero dependency conflicts. | Installing Python packages, managing lockfiles, fixing import errors. |
+
+---
+
+## ⚡ The Superpowers Engine
+
+Installed in `plugins/superpowers/`, this suite gives Antigravity the workflow habits of an elite engineering team:
 
 ```mermaid
-flowchart TD
-    subgraph SuperpowersMesh["The Superpowers Autonomous Engineering Suite"]
-        direction TB
-        SP_Boot["using-superpowers<br/>(Turn 0 rule activation & skill loading)"]
-        SP_Brain["brainstorming<br/>(Anti-bias creative divergence)"]
-        SP_Plan["writing-plans & executing-plans<br/>(Bite-sized, testable phase blueprints)"]
-        SP_Worktree["using-git-worktrees<br/>(Hermetic workspace branch isolation)"]
-        SP_SDD["subagent-driven-development<br/>(Implementer & Reviewer swarms)"]
-        SP_TDD["test-driven-development<br/>(Strict Red-Green-Refactor)"]
-        SP_Debug["systematic-debugging<br/>(4-phase root cause isolation)"]
-        SP_Review["requesting-code-review & receiving-code-review<br/>(Self-critique & objective triage)"]
-        SP_Verify["verification-before-completion<br/>(Empirical proof gate)"]
-        SP_Finish["finishing-a-development-branch<br/>(Rebase, squash, release PR)"]
-    end
-
-    SP_Boot --> SP_Brain --> SP_Plan --> SP_Worktree --> SP_SDD --> SP_TDD --> SP_Debug --> SP_Review --> SP_Verify --> SP_Finish
+flowchart LR
+    A["💡 Brainstorm"] --> B["📝 Plan (Bite-Sized)"]
+    B --> C["🌿 Git Worktree"]
+    C --> D["🔴 Red: Write Failing Test"]
+    D --> E["🟢 Green: Minimal Fix"]
+    E --> F["🔍 Root-Cause Debug"]
+    F --> G["👥 Independent Subagent Review"]
+    G --> H["🛡️ Verification Gate"]
+    H --> I["🚀 Clean PR Ready"]
 
     classDef spStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c;
-    class SP_Boot,SP_Brain,SP_Plan,SP_Worktree,SP_SDD,SP_TDD,SP_Debug,SP_Review,SP_Verify,SP_Finish spStyle;
+    class A,B,C,D,E,F,G,H,I spStyle;
 ```
 
-### Complete Superpowers Catalog
-
-| # | Superpower Skill | Exact Capability & Engineering Behavior |
-| :---: | :--- | :--- |
-| **1** | `test-driven-development` | Enforces strict Red-Green-Refactor. Writes a failing unit/regression test first, writes minimal implementation code, verifies green, and refactors cleanly. |
-| **2** | `systematic-debugging` | Root-cause tracing before editing code. Reproduces the bug minimally, forms hypotheses, traces dataflow, and adds defense-in-depth assertions. |
-| **3** | `subagent-driven-development` | Orchestrates multi-agent pairs (Implementer + Reviewer) in isolated workspaces. Every task requires independent code-review sign-off. |
-| **4** | `writing-plans` | Generates granular, bite-sized implementation specs with clear file paths, code snippets, dependencies, and testable acceptance gates. |
-| **5** | `executing-plans` | Autonomous step-by-step executor with persistent checkpointing, preventing drift from the approved specification. |
-| **6** | `brainstorming` | Explores alternatives, probes edge cases, checks architectural trade-offs, and aligns user vision before writing any code. |
-| **7** | `using-git-worktrees` | Isolates tasks and feature branches into clean, temporary Git worktree folders to prevent clobbering active checkouts. |
-| **8** | `verification-before-completion` | Prohibits declaring completion until test runner commands are executed and verified with exit code 0 on the host terminal. |
-| **9** | `requesting-code-review` | Dispatches an independent reviewer subagent to scrutinize diffs against project standards, security rules, and performance guidelines. |
-| **10** | `receiving-code-review` | Evaluates review feedback objectively without defensive pushback or blind obedience; confirms technical validity empirically. |
-| **11** | `finishing-a-development-branch` | Analyzes commit history, verifies clean working tree, executes final integration passes, and drafts structured PRs. |
-| **12** | `dispatching-parallel-agents` | Spawns multiple concurrent subagents for independent tasks (e.g., parallel benchmarks or independent file modules). |
-| **13** | `writing-skills` | Meta-skill for engineering new high-agency Antigravity skills, generating Graphviz trigger maps, and running subagent evals. |
-| **14** | `diagnosing-superpowers` | Forensic audit suite that inspects session logs to diagnose stumbles, repeated work, token burn, and latency anomalies. |
-| **15** | `using-superpowers` | The master entry-point skill ensuring all superpowers are loaded and respected across the session lifecycle. |
+- **Test-Driven Development (TDD):** Writes the test first. Confirms it fails. Writes minimal code. Confirms it passes.
+- **Systematic Debugging:** 4-step root cause tracing before touching code. No shotgun edits or guessing.
+- **Subagent-Driven Development (SDD):** Splits work between an *Implementer* subagent and an *Independent Reviewer* subagent for double-checked accuracy.
+- **Git Worktree Isolation:** Runs experiments in isolated scratch branches so your main work is never messed up.
 
 ---
 
-## 🛠️ The 15 Orthogonal Master Skills
+## 📜 Antigravity Native Rules (`.agents/rules/`)
 
-Zero overlap. Zero sibling hijacking. Every major software engineering domain is governed by a dedicated master engine:
-
-| # | Master Skill | Core Domain & Specialization | Trigger Conditions | CLI Tools & Reference Guides |
-| :---: | :--- | :--- | :--- | :--- |
-| **1** | [`master-frontend-ux`](skills/master-frontend-ux/SKILL.md) | Full-stack UI/UX design, 50+ themes, 192 product palettes, 74 font pairings, and anti-slop pre-flight checks. | Building/editing web interfaces, React, Tailwind, landing pages, component redesigns. | `validate_data.py`<br>`search.py`<br>`core.py` |
-| **2** | [`clean-code-craft`](skills/clean-code-craft/SKILL.md) | Karpathy clean code minimalism, cognitive load reduction, surgical minimal diffs, zero speculative abstractions. | Code reviews, refactoring, simplifying complex logic, dead code removal. | Reference manuals |
-| **3** | [`document-master`](skills/document-master/SKILL.md) | Automated Word (`.docx`), Excel (`.xlsx`), PowerPoint (`.pptx`), and PDF forms, OCR, table extraction, and LibreOffice conversion. | Generating, editing, calculating, or converting documents, spreadsheets, slides, or PDFs. | `recalc.py`<br>`soffice.py`<br>`convert_pdf_to_images.py` |
-| **4** | [`git-workflow`](skills/git-workflow/SKILL.md) | Conventional Commits 1.0.0, atomic commit scopes, reviewer-friendly PR descriptions with branch diff inspection. | Staging changes, creating commits, drafting PR summaries, changelogs, git release branches. | Reference guides |
-| **5** | [`security-and-hardening`](skills/security-and-hardening/SKILL.md) | OWASP Top 10 mitigation, untrusted input sanitization, JWT/auth flows, secret leak prevention, SQLi/XSS defense. | Auditing security, creating auth endpoints, handling user uploads, reviewing external dependencies. | Hardening patterns |
-| **6** | [`performance-optimization`](skills/performance-optimization/SKILL.md) | Database query profiling, N+1 query elimination, bundle size reduction, and Core Web Vitals (LCP, CLS, INP). | Profiling slow queries, memory leaks, latency bottlenecks, high bundle sizes, caching. | Optimization patterns |
-| **7** | [`webapp-testing`](skills/webapp-testing/SKILL.md) | Headless Chromium automated end-to-end testing, UI interaction verification, and screenshot capture via Playwright. | Running E2E tests, verifying UI behavior in the browser, testing web applications, capturing console logs. | `with_server.py`<br>Playwright test harness |
-| **8** | [`planning-with-files`](skills/planning-with-files/SKILL.md) | Persistent on-disk task planning (`task_plan.md`, `progress.md`, `findings.md`) with native PowerShell automation. | Multi-step complex tasks requiring 3+ phases, multi-file changes, long research runs. | `init-session.ps1`<br>`check-complete.ps1`<br>`session-catchup.py` |
-| **9** | [`graphify`](skills/graphify/SKILL.md) | Codebase knowledge graphs, Tree-sitter AST parsing, community detection, architecture queries. | Exploring new codebases, mapping dependencies, structural questions, architecture analysis. | Tree-sitter AST engine |
-| **10** | [`agent-skills-builder`](skills/agent-skills-builder/SKILL.md) | End-to-end AI agent skill lifecycle engine: scraping, packaging, validating, testing, repairing agent skills. | Authoring new skills, benchmarking skills, validating manifests, optimizing YAML descriptions. | `package_skill.py`<br>`quick_validate.py`<br>`improve_description.py` |
-| **11** | [`mcp-builder`](skills/mcp-builder/SKILL.md) | Model Context Protocol server development in Python (FastMCP) and TypeScript (MCP SDK), tool schemas, connections. | Building MCP servers, exposing tools to LLMs, configuring stdio/HTTP transports. | `connections.py`<br>`evaluation.py` |
-| **12** | [`managing-python-dependencies`](skills/managing-python-dependencies/SKILL.md) | Virtual environment isolation (`venv`, `uv`), deterministic lockfiles, package conflict resolution. | Setting up Python projects, managing dependencies, fixing pip conflicts, virtual environment management. | uv / venv workflows |
-| **13** | [`docker-orchestration`](skills/docker-orchestration/SKILL.md) | Multi-stage Docker builds, compose patterns, container hardening, non-root users, build cache optimization. | Writing/fixing Dockerfiles, docker-compose setups, container security audits, layer caching. | Reference guides |
-| **14** | [`database-design`](skills/database-design/SKILL.md) | PostgreSQL & relational schema design, 3NF normalization, B-Tree/GIN indexing, zero-downtime DDL migrations, Supabase RLS. | Designing schemas, index tuning, writing SQL migrations, EXPLAIN analysis, Supabase RLS policies. | Reference guides |
-| **15** | [`api-design`](skills/api-design/SKILL.md) | RESTful API standards, OpenAPI 3.1 specification, RFC 7807 Problem Details error schemas, idempotency keys, cursor pagination. | Designing REST APIs, OpenAPI/Swagger schemas, error response contracts, pagination/filtering. | Reference guides |
-
----
-
-## 📜 Antigravity Native Rules Architecture (`.agents/rules/`)
-
-To solve rule token budget constraints without compromising guardrails, IAOS implements native Antigravity frontmatter triggers across modular rule files:
+To keep responses fast without hitting token limits, instructions are split into modular rules that activate **only when relevant**:
 
 ```mermaid
-flowchart LR
-    Turn0["Prompt Received (Turn 0)"] --> RuleEngine["Antigravity Native Rules Engine"]
-    RuleEngine --> AlwaysOn["windows-powershell.md<br/><code>trigger: always_on</code><br/>(Deterministic PowerShell execution)"]
-    RuleEngine --> Dec1{"trigger: model_decision"}
-    Dec1 -->|"Code modification"| R_Clean["clean-code-discipline.md<br/>(Karpathy clean-code minimalism)"]
-    Dec1 -->|"Verification / testing"| R_Verify["verification-ladder.md<br/>(6-Step Verification Ladder)"]
-    Dec1 -->|"Frontend / UI task"| R_Slop["anti-slop-ui.md<br/>(Anti-slop UI/UX standards)"]
+flowchart TD
+    Prompt["User sends message"] --> Engine["Antigravity Native Rules Engine"]
+    
+    Engine --> R1["windows-powershell.md<br/><code>trigger: always_on</code><br/><i>Always active: Prohibits broken Linux bashisms</i>"]
+    
+    Engine --> Dec{"trigger: model_decision<br/><i>Loads only when task matches</i>"}
+    Dec -->|"Coding / Bug fix"| R2["clean-code-discipline.md<br/><i>Karpathy minimalism & minimal diffs</i>"]
+    Dec -->|"Verification / Done"| R3["verification-ladder.md<br/><i>Mandates evidence before claiming success</i>"]
+    Dec -->|"Frontend / Web UI"| R4["anti-slop-ui.md<br/><i>Enforces good colors, fonts & contrast</i>"]
 ```
-
-| Rule File | Antigravity Trigger | Activation Condition & Core Purpose |
-| :--- | :--- | :--- |
-| [`.agents/rules/windows-powershell.md`](.agents/rules/windows-powershell.md) | `always_on` | Prohibits POSIX bashisms (`grep`, `cat`, `sed`, `rm -rf`, `export`). Enforces Windows PowerShell native cmdlets, UTF-8 stdio, and proper path escaping. |
-| [`.agents/rules/verification-ladder.md`](.agents/rules/verification-ladder.md) | `model_decision` | Activated during verification and task completion. Mandates Level 1–6 climbing with empirical terminal exit codes before claiming success. |
-| [`.agents/rules/clean-code-discipline.md`](.agents/rules/clean-code-discipline.md) | `model_decision` | Activated during coding, refactoring, and bug fixes. Enforces Andrej Karpathy's clean code rules: surgical diffs, no speculative abstractions, comment preservation. |
-| [`.agents/rules/anti-slop-ui.md`](.agents/rules/anti-slop-ui.md) | `model_decision` | Activated during frontend, HTML, CSS, React, and Tailwind tasks. Forbids generic AI templates, dummy data, and enforces accessible color contrast. |
-
----
-
-## 📦 Custom Plugins Ecosystem (6 Advanced Suites)
-
-> **Note on Default Preloaded Plugins:** Antigravity already ships with or preloads official marketplace plugins out-of-the-box (e.g. `gdocs`, `gcalendar`, `gdrive`, `gsheets`, `gslides`, `gemini-api`, `google-cloud-developer`, `google-developer-knowledge`, `google_maps_platform`, `google-antigravity-sdk`, `firebase`, `flutter`, `android-cli-plugin`, `chrome-devtools-plugin`, `science`, `data-agent-kit-plugin`, `modern-web-guidance-plugin`). To maintain a clean, lightweight repository, prevent merge conflicts, and avoid overriding user-specific environments, **those default preloaded plugins are managed natively by Antigravity and omitted from git tracking**.
-
-This repository focuses exclusively on high-agency, custom, and partner extensions:
-
-```mermaid
-mindmap
-  root((Custom Plugins<br/>6 Advanced Suites))
-    Autonomous Engineering
-      superpowers
-    Design & UI Engine
-      stitch-build
-      stitch-design
-      stitch-utilities
-    Cloud & Edge Infrastructure
-      cloudflare
-      vercel-plugin
-```
-
-1. **`superpowers`**: The complete autonomous software engineering system (15 sub-skills: strict TDD, systematic 4-phase debugging, subagent-driven development swarms, git worktree isolation, objective code review).
-2. **`stitch-build`**: Google Stitch design-to-code engine (transforms designs into modular React + Vite + Tailwind + shadcn/ui components).
-3. **`stitch-design`**: Stitch screen generation, theme token extraction, and design variant engine.
-4. **`stitch-utilities`**: Semantic design system constitution generator (`DESIGN.md`, `SITE.md`, prompt enhancers).
-5. **`cloudflare`**: Cloudflare Workers, Wrangler, Durable Objects, Turnstile, and Agents SDK.
-6. **`vercel-plugin`**: Vercel AI SDK, Edge Middleware, serverless functions, durable workflows, and CI/CD pipelines.
 
 ---
 
 ## 🛡️ The 6-Step Verification Ladder
 
-Under IAOS rules, **a plan is not execution, a tool call is not proof of success, and a passing unit test is not proof of full compliance**. The agent must climb the ladder sequentially:
+Under IAOS, **saying "it works" without proof is strictly forbidden**. The AI must climb this ladder before it can mark any task complete:
 
 ```
-[Level 6] Explicit User Confirmation
-    ▲     (Mandatory for Level 3 high-impact / irreversible actions: db drops, secret rotations)
+[Level 6] 🤝 Explicit User Confirmation
+    ▲     (Required for irreversible actions: deleting files, dropping databases)
     │
-[Level 5] Independent Review & Spec Verification
-    ▲     (Subagent reviewer inspects diff against initial constraints and edge cases)
+[Level 5] 👁️ Independent Spec & Edge Case Review
+    ▲     (Reviewer checks code against the original prompt requirements)
     │
-[Level 4] Integration & Live State Verification
-    ▲     (Dev server invocation, live HTTP response check, or browser E2E test)
+[Level 4] 🌐 Live Integration & Server Check
+    ▲     (Dev server starts, live HTTP endpoint returns 200, browser loads page)
     │
-[Level 3] Targeted Unit & Regression Test Suite
-    ▲     (Execute pytest / vitest / jest / dart test; inspect exit code 0)
+[Level 3] 🧪 Real Test Suite Pass (Exit Code 0)
+    ▲     (Runs pytest / vitest / jest / dart test in terminal and verifies success)
     │
-[Level 2] Deterministic Invariants & Schema Assertions
-    ▲     (Confirm output files exist on disk, non-empty, valid JSON/YAML syntax)
+[Level 2] 📁 File & Schema Verification
+    ▲     (Checks disk to confirm files actually exist, are non-empty and valid)
     │
-[Level 1] Syntax & Type Validation
-          (Compiler check, linter pass, typechecker: tsc / flake8 / dart analyze)
+[Level 1] 🔍 Syntax & Compiler Validation
+          (TypeScript typecheck, Python syntax check, or linter pass)
 ```
 
 ---
 
-## ⚡ Quick Start & Installation
+## ⚡ Quick Start: 3 Steps to Install
 
-### Step 1: Clone into your Gemini/Antigravity configuration folder
-Open **PowerShell** and clone directly into your user profile directory:
+### Step 1: Clone into your Gemini/Antigravity folder
+Open **PowerShell** and run:
 
 ```powershell
-# Clone the complete IAOS configuration
+# Clone directly into your personal user configuration
 git clone https://github.com/SFRREX/antigravity-config.git "$HOME\.gemini\config"
 ```
 
-### Step 2: Install runtime dependencies
-Run the PowerShell dependency bootstrapper to install all required libraries:
+### Step 2: Install runtime tools (One-time)
+Run this single command to install testing, document, and graph tools:
 
 ```powershell
-# Core document processing, AST graph generation, and headless testing
 python -m pip install playwright graphifyy openpyxl pandas pypdf pdfplumber reportlab pypdfium2 lxml mcp
-
-# Install headless Chromium browser for webapp-testing
 python -m playwright install chromium
 ```
 
-### Step 3: Restart Antigravity or Gemini CLI
-Restart **Antigravity** or open a new terminal session with `agy`.
-The system will immediately detect the global operating rules in `GEMINI.md`, load the native `.agents/rules/` triggers, and register all 15 master skills and 6 custom plugins at **Turn 0**!
+### Step 3: Restart Antigravity
+Restart **Antigravity** or open your terminal with `agy`.  
+All 15 master skills, 4 native rules, and the Superpowers engine will automatically activate at **Turn 0**!
 
 ---
 
-## 📁 Complete Repository Structure
+## 📁 Repository Structure
 
 ```
 antigravity-config/
-├── .agents/                                   # Antigravity Native Workspace Directives
-│   ├── rules/                                 # Antigravity Native Rules with Triggers
-│   │   ├── windows-powershell.md              # trigger: always_on (PowerShell enforcement)
-│   │   ├── verification-ladder.md             # trigger: model_decision (6-step verification)
-│   │   ├── clean-code-discipline.md           # trigger: model_decision (Karpathy minimalism)
-│   │   └── anti-slop-ui.md                    # trigger: model_decision (anti-slop UX standards)
-│   └── skills/                                # Antigravity Native Workspace Skills (15 Engines)
-├── GEMINI.md                                  # Global Antigravity behavioral rules (100% inlined)
-├── AGENTS.md                                  # Project & repository mirror rules
-├── README.md                                  # Public documentation and visual architecture guide
-├── config.example.json                        # Sanitized template for user settings & plugins
-├── mcp_config.example.json                    # Sanitized template for Model Context Protocol servers
-├── .gitignore                                 # Ignores default preloaded plugins, caches & local configs
-├── docs/
-│   └── AGENT_ENGINEERING_OPTIMIZATION_GUIDE.md # Production AI Agent Architecture Manual
-├── plugins/                                   # Custom & Partner Production Plugins
+├── .agents/                                   # Native Antigravity Directives
+│   ├── rules/                                 # Modular Rules (Loaded by Trigger)
+│   │   ├── windows-powershell.md              # trigger: always_on (PowerShell safety)
+│   │   ├── clean-code-discipline.md           # trigger: model_decision (Karpathy clean code)
+│   │   ├── verification-ladder.md             # trigger: model_decision (Evidence ladder)
+│   │   └── anti-slop-ui.md                    # trigger: model_decision (Anti-slop UI standards)
+│   └── skills/                                # Native Workspace Skills (15 Engines)
+├── GEMINI.md                                  # Core Antigravity rule index (Concise 5.9 KB)
+├── AGENTS.md                                  # Project mirror rule index (5.9 KB)
+├── README.md                                  # You are here!
+├── config.example.json                        # Clean template for custom settings
+├── mcp_config.example.json                    # Clean template for MCP servers
+├── .gitignore                                 # Excludes caches, logs, and preloaded plugins
+├── plugins/                                   # Custom & Partner Extensions
 │   ├── superpowers/                           # 15 autonomous engineering sub-skills
-│   ├── stitch-build/                          # React + Vite + Tailwind code generator
-│   ├── stitch-design/                         # Screen generation & design variant engine
-│   ├── stitch-utilities/                      # Design system analysis & DESIGN.md generator
-│   ├── cloudflare/                            # Workers, Wrangler, Durable Objects & Turnstile
-│   └── vercel-plugin/                         # AI SDK, Workflows, Functions, Daemons, CI/CD
-└── skills/                                    # 15 Orthogonal Master Engines
+│   ├── stitch-build/                          # React + Vite design-to-code
+│   ├── stitch-design/                         # Screen generation & variants
+│   ├── stitch-utilities/                      # Design system constitution generator
+│   ├── cloudflare/                            # Cloudflare Workers & Agents SDK
+│   └── vercel-plugin/                         # AI SDK, Workflows & Serverless
+└── skills/                                    # 15 Specialized Master Engines
     ├── master-frontend-ux/                    # UI/UX engineering, 50+ themes, sloplint
-    ├── clean-code-craft/                      # Karpathy clean code minimalism & refactoring
-    ├── document-master/                       # Word, Excel, PowerPoint, and PDF engine
-    ├── git-workflow/                          # Conventional Commits 1.0.0 & PR generator
+    ├── clean-code-craft/                      # Karpathy minimalism & refactoring
+    ├── docker-orchestration/                  # Multi-stage builds, compose, non-root
+    ├── database-design/                       # 3NF schemas, indexing, safe migrations
+    ├── api-design/                            # REST standards, OpenAPI 3.1, RFC 7807
+    ├── document-master/                       # Word, Excel, PowerPoint, PDF engine
+    ├── git-workflow/                          # Conventional Commits & PR generator
     ├── security-and-hardening/                # OWASP Top 10 & input sanitization
     ├── performance-optimization/              # Query, bundle, and Core Web Vitals tuning
     ├── webapp-testing/                        # Playwright automated browser test suite
-    ├── planning-with-files/                   # Task planning & PowerShell lifecycle automation
+    ├── planning-with-files/                   # Task planning & PowerShell lifecycle
     ├── graphify/                              # Codebase AST knowledge graph generator
-    ├── agent-skills-builder/                  # Skill lifecycle, scraping, and benchmarking
-    ├── mcp-builder/                           # FastMCP & TypeScript MCP server development
-    ├── managing-python-dependencies/          # Virtual environment management (uv, venv)
-    ├── docker-orchestration/                  # Multi-stage builds, compose, non-root security
-    ├── database-design/                       # 3NF normalization, indexing, zero-downtime DDL
-    └── api-design/                            # REST standards, OpenAPI 3.1, RFC 7807 errors
+    ├── agent-skills-builder/                  # Skill lifecycle & benchmarking
+    ├── mcp-builder/                           # FastMCP & TypeScript MCP server builder
+    └── managing-python-dependencies/          # Virtual environments (uv, venv)
 ```
-
----
-
-## 💻 Environment & Requirements
-
-- **Operating System:** Windows 10 / Windows 11 (fully compatible with macOS and Linux hosts)
-- **Primary Shell:** PowerShell 5.1 or PowerShell 7+ (PWSH)
-- **Python:** Python 3.10+ (configured on system `PATH`)
-- **Node.js:** Node.js 18+ LTS (for frontend tooling, Playwright, and TypeScript MCP servers)
-- **Git:** Git 2.30+
 
 ---
 
 ## 🤝 Contributing & License
 
-Contributions, additional domain master skills, and architectural enhancements are welcome!
+Contributions, new master skills, and suggestions are welcome!
 
 1. Fork this repository: `https://github.com/SFRREX/antigravity-config/fork`
-2. Create your feature branch: `git checkout -b feat/new-master-skill`
-3. Verify that any scripts exit cleanly with code `0`: `python script.py --help`
-4. Commit your changes with Conventional Commits: `git commit -m "feat(skills): add docker-orchestration"`
-5. Push to your branch and open a Pull Request.
+2. Create your branch: `git checkout -b feat/my-new-skill`
+3. Commit with Conventional Commits: `git commit -m "feat(skills): add kubernetes-basics"`
+4. Push and open a Pull Request!
 
-This repository is open-source software licensed under the [MIT License](LICENSE).
-Built with ❤️ for the global AI developer community.
+Licensed under the [MIT License](LICENSE). Built with ❤️ for the global AI developer community.

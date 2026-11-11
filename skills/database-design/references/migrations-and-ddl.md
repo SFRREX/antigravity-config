@@ -22,3 +22,4 @@ CREATE INDEX CONCURRENTLY idx_users_phone ON users(phone);
    UPDATE users SET full_name = name WHERE full_name IS NULL AND id IN (SELECT id FROM users WHERE full_name IS NULL LIMIT 1000);
    ```
 4. **Phase 4 (Contract)**: Switch reads to `full_name`, deprecate and drop old column `name`.
+

@@ -41,3 +41,4 @@ In PowerShell:
 docker scout cves my-app:latest
 docker scout quickview my-app:latest
 ```
+

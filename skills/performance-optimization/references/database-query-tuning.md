@@ -20,3 +20,4 @@ Optimal pool size according to PostgreSQL core maintainers:
 $$\text{pool\_size} = (2 \times \text{CPU\_cores}) + \text{effective\_spindle\_count}$$
 
 Never configure 500 connections on an 8-core database server (causes severe CPU context switching). Use PgBouncer or Supabase transaction pooler for high concurrency.
+

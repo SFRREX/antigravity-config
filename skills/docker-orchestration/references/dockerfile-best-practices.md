@@ -52,3 +52,4 @@ docker history my-app:latest
 # Run with port mapping and env file
 docker run --rm -p 8080:8000 --env-file .env.production my-app:latest
 ```
+

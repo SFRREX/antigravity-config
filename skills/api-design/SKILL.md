@@ -55,3 +55,4 @@ Activate this skill when:
 - [OpenAPI 3.1 Specification Blueprint](./references/openapi-specification.md)
 - [RFC 7807 Problem Details & Error Handling Standard](./references/error-handling-rfc7807.md)
 - [Idempotent Operations & Cursor Pagination Patterns](./references/idempotency-and-pagination.md)
+

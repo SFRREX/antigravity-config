@@ -17,3 +17,4 @@ When writing, refactoring, or debugging code:
 1. Before touching existing logic, identify existing tests or create a minimal reproduction.
 2. Maintain identical external API signatures unless a breaking change is explicitly approved.
 3. Validate behavior preservation by running test suites immediately after each discrete change.
+

@@ -32,3 +32,4 @@ Under Antigravity rules, **a plan is not execution; a tool call is not proof of 
 2. **Deterministic File Verification**: Use `Test-Path` or file inspection to confirm that modified or generated files exist on disk.
 3. **No Fabricated Completions**: If a test suite fails, report the exact error, form a hypothesis, and fix the underlying issue before asserting resolution.
 4. **Resumable State**: For multi-step tasks (3+ steps), record verification status in durable files (`task_plan.md`, `progress.md`).
+

@@ -45,3 +45,4 @@ Never emit Linux/POSIX shell commands in PowerShell. Always use native cmdlets o
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     ```
   - Prefer ASCII status indicators (`[OK]`, `[ERROR]`, `[*]`) over multi-byte Unicode emojis in shell pipelines.
+

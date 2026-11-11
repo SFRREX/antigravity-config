@@ -82,3 +82,4 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 - [Dockerfile Best Practices & Layer Caching](./references/dockerfile-best-practices.md)
 - [Docker Compose Multi-Container Patterns](./references/compose-patterns.md)
 - [Container Security & Rootless Hardening](./references/security-and-caching.md)
+
